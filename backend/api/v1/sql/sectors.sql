@@ -1,0 +1,1 @@
+CREATE TABLE sectors (`id` INT(11) NOT NULL AUTO_INCREMENT DEFAULT '' COMMENT 'autoincremental | 1 unique id for each sector', `sectorsName` VARCHAR(32) NULL DEFAULT '' COMMENT 'Sectors being offered (gastronomics, cloth, etc)', `moreUsed` INT(32) NULL DEFAULT '0' COMMENT 'How many times where used (for statistics)')

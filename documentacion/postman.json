@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "3f9753b0-29d7-4123-a4d1-0dfff08b7854",
+		"name": "flashivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "setAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"setAll\",\r\n\"username\": \"Cris\", \r\n\"firstName\": \"Cristian\", \r\n\"lastName\": \"Mar\", \r\n\"email\": \"cmar@yo.com\", \r\n\"password\": \"test1234\", \r\n\"phone\": \"5555555\", \r\n\"country\": \"Arg\", \r\n\"state\": \"Bs. As.\", \r\n\"city\": \"Flor\", \r\n\"rol\": 0, \r\n\"kyc\": 0, \r\n\"tarjeta\": \"0x32183798231\", \r\n\"cuenta\": \"0x32183798231\", \r\n\"admin\": 0, \r\n\"priceKm\": 3, \r\n\"zona1\": \"45.93\", \r\n\"zona2\": \"35.23\", \r\n\"zona3\": \"25.45\", \r\n\"zona4\": \"15.56\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/setAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"setAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"deleteAll\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/deleteAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"deleteAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"deleteById\",\r\n  \"id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/deleteById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"deleteById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAdminById",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "query",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"updateAdminById\",\r\n\"admin\": 1,\r\n\"id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/updateAdminById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"updateAdminById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/getAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sectors",
+			"item": [
+				{
+					"name": "setAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"method\": \"setAll\",\r\n    \"sectorsName\": \"Farmacia\",\r\n    \"moreUsed\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/sectors/setAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sectors",
+								"setAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"deleteById\",\r\n  \"id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/sectors/deleteById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sectors",
+								"deleteById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/sectors/getAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sectors",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMoreUsedBySectorsName",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "query",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"updateMoreUsedBySectorsName\",\r\n\"moreUsed\": 11,\r\n\"sectorsName\": \"Gastronomico\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/sectors/updateMoreUsedBySectorsName",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sectors",
+								"updateMoreUsedBySectorsName"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/order/getAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatusById",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "query",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"updateStatusById\",\r\n\"Status\": \"entregado\",\r\n\"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/updateStatusById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"updateStatusById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"deleteById\",\r\n  \"id\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/deleteById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"deleteById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"deleteAll\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/deleteAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"deleteAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "setAll",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "b5b2be75-9b3f-40ce-97ee-7ef19677a7b0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"method\": \"setAll\",\r\n  \"shop\": \"Mc Donalds\",\r\n  \"shopId\": 12345,\r\n  \"order\": \"Hamburguesa con queso, papas fritas, Cocacola\",\r\n  \"shipDate\": \"2024-03-29\",\r\n  \"Status\": \"pendiente\",\r\n  \"price\": \"$29.99\",\r\n  \"pickAddress\": \"10 15\",\r\n  \"deliveryAddress\": \"10 16\",\r\n  \"quarrelDescription\": \"\",\r\n  \"quarrelPicture\": \"\",\r\n  \"reviewDescription\": \"\",\r\n  \"reviewLevel\": 6,\r\n  \"deliveryId\": 987654,\r\n  \"deliveryMoney\": \"$5.00\",\r\n  \"userId\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/setAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"setAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://cursoblockchain.com.ar/flashivery/api/v1/"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(getById)/(.+)$ index.php?method=$1&id=$2 
+RewriteRule ^(getByShop)/(.+)$ index.php?method=$1&shop=$2 
+RewriteRule ^(getByShopId)/(.+)$ index.php?method=$1&shopId=$2 
+RewriteRule ^(getByOrder)/(.+)$ index.php?method=$1&order=$2 
+RewriteRule ^(getByShipDate)/(.+)$ index.php?method=$1&shipDate=$2 
+RewriteRule ^(getByStatus)/(.+)$ index.php?method=$1&Status=$2 
+RewriteRule ^(getByPrice)/(.+)$ index.php?method=$1&price=$2 
+RewriteRule ^(getByPickAddress)/(.+)$ index.php?method=$1&pickAddress=$2 
+RewriteRule ^(getByDeliveryAddress)/(.+)$ index.php?method=$1&deliveryAddress=$2 
+RewriteRule ^(getByQuarrelDescription)/(.+)$ index.php?method=$1&quarrelDescription=$2 
+RewriteRule ^(getByQuarrelPicture)/(.+)$ index.php?method=$1&quarrelPicture=$2 
+RewriteRule ^(getByReviewDescription)/(.+)$ index.php?method=$1&reviewDescription=$2 
+RewriteRule ^(getByReviewLevel)/(.+)$ index.php?method=$1&reviewLevel=$2 
+RewriteRule ^(getByDeliveryId)/(.+)$ index.php?method=$1&deliveryId=$2 
+RewriteRule ^(getByDeliveryMoney)/(.+)$ index.php?method=$1&deliveryMoney=$2 
+RewriteRule ^(getByUserId)/(.+)$ index.php?method=$1&userId=$2 
+RewriteRule ^([a-zA-Z0-9]+)$ index.php?method=$1

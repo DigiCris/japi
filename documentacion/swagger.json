@@ -1,0 +1,307 @@
+openapi: 3.0.0
+info:
+  title: flashivery
+  version: 1.0.0
+servers:
+  - url: https://cursoblockchain.com.ar/flashivery/api/v1
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+tags:
+  - name: user
+  - name: sectors
+  - name: order
+paths:
+  /user/setAll:
+    post:
+      tags:
+        - user
+      summary: setAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: setAll
+                username: Cris
+                firstName: Cristian
+                lastName: Mar
+                email: cmar@yo.com
+                password: test1234
+                phone: '5555555'
+                country: Arg
+                state: Bs. As.
+                city: Flor
+                rol: 0
+                kyc: 0
+                tarjeta: '0x32183798231'
+                cuenta: '0x32183798231'
+                admin: 0
+                priceKm: 3
+                zona1: '45.93'
+                zona2: '35.23'
+                zona3: '25.45'
+                zona4: '15.56'
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/deleteAll:
+    post:
+      tags:
+        - user
+      summary: deleteAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: deleteAll
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/deleteById:
+    post:
+      tags:
+        - user
+      summary: deleteById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: deleteById
+                id: 6
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/updateAdminById:
+    post:
+      tags:
+        - user
+      summary: updateAdminById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: updateAdminById
+                admin: 1
+                id: 6
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/getAll:
+    get:
+      tags:
+        - user
+      summary: getAll
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /sectors/setAll:
+    post:
+      tags:
+        - sectors
+      summary: setAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: setAll
+                sectorsName: Farmacia
+                moreUsed: 10
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /sectors/deleteById:
+    post:
+      tags:
+        - sectors
+      summary: deleteById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: deleteById
+                id: 5
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /sectors/getAll:
+    get:
+      tags:
+        - sectors
+      summary: getAll
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /sectors/updateMoreUsedBySectorsName:
+    post:
+      tags:
+        - sectors
+      summary: updateMoreUsedBySectorsName
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: updateMoreUsedBySectorsName
+                moreUsed: 11
+                sectorsName: Gastronomico
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /order/getAll:
+    get:
+      tags:
+        - order
+      summary: getAll
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /order/updateStatusById:
+    post:
+      tags:
+        - order
+      summary: updateStatusById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: updateStatusById
+                Status: entregado
+                id: 1
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /order/deleteById:
+    post:
+      tags:
+        - order
+      summary: deleteById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: deleteById
+                id: 7
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /order/deleteAll:
+    post:
+      tags:
+        - order
+      summary: deleteAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: deleteAll
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /order/setAll:
+    post:
+      tags:
+        - order
+      summary: setAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                method: setAll
+                shop: Mc Donalds
+                shopId: 12345
+                order: Hamburguesa con queso, papas fritas, Cocacola
+                shipDate: '2024-03-29'
+                Status: pendiente
+                price: $29.99
+                pickAddress: 10 15
+                deliveryAddress: 10 16
+                quarrelDescription: ''
+                quarrelPicture: ''
+                reviewDescription: ''
+                reviewLevel: 6
+                deliveryId: 987654
+                deliveryMoney: $5.00
+                userId: 123
+      security:
+        - apikeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+

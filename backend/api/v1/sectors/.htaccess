@@ -1,0 +1,7 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(getById)/(.+)$ index.php?method=$1&id=$2 
+RewriteRule ^(getBySectorsName)/(.+)$ index.php?method=$1&sectorsName=$2 
+RewriteRule ^(getByMoreUsed)/(.+)$ index.php?method=$1&moreUsed=$2 
+RewriteRule ^([a-zA-Z0-9]+)$ index.php?method=$1
