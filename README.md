@@ -1,6 +1,8 @@
 # Flashivery
 Flashivery
 
+cambio algo
+
 ## Backend
 Acá dejo los llamados a la API que hay disponibles. Esta desplegado en: https://cursoblockchain.com.ar/flashivery/api/v1
 En swagger.json pueden ver la documentacion en formato openAPI de representantes de cada estilo de endpoint para que vean como funciona.
