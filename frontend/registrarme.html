@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚡ Flashívery | Registrarme</title>
+  <link rel="stylesheet" href="/assets/styles/registrarme.css">
+</head>
+<body>
+  <header>
+    <div class="logo">⚡Flashívery</div>
+  </header>
+  <main>
+    <p class="subtitulo">Registrarme</p>
+
+    <form action="procesarRegistro.php" method="post">
+      <div class="contenedor">
+        <div class="grupo">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" required />
+        </div>
+
+        <div class="grupo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="grupo">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" required />
+        </div>
+
+        <div class="grupo">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" required />
+        </div>
+
+        <div class="grupo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="grupo">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div class="grupo">
+          <label for="pais">País</label>
+          <input type="text" id="pais" name="pais" required />
+        </div>
+
+        <div class="grupo">
+          <label for="provincia">Provincia</label>
+          <input type="text" id="provincia" name="provincia" required />
+        </div>
+
+        <div class="grupo">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" required />
+        </div>
+
+        <div class="grupo">
+          <label for="rol">Rol</label>
+          <select id="rol" name="rol" required>
+            <option value="usuario">Usuario</option>
+            <option value="trabajador">Trabajador</option>
+            <option value="empresa">Empresa</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="contenedorBotones">
+        <button id="botonRegistrar" type="submit">Registrar ></button>
+        <button
+          id="botonVolver"
+          type="button"
+          onclick="window.location.href='/login.html';"
+        >
+          < Volver
+        </button>
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p>
+      Al continuar, aceptas los <a href="">Términos y Condiciones</a> y la
+      <a href="">Política de privacidad</a> de &copy; 2024 Flashívery.
+    </p>
+  </footer>
+</body>
+</html>
