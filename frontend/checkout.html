@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/checkout.css">
+    <script>
+        hamburgerState = false;
+        function toggleHamburger() {
+            if(hamburgerState) {
+                removeClassFromElement("checkout-bar-1", "checkout-hide");
+                addClassToElement("checkout-bar-1", "checkout-bar");
+                removeClassFromElement("checkout-bar-2", "checkout-hide");
+                addClassToElement("checkout-bar-2", "checkout-bar");
+                removeClassFromElement("checkout-bar-3", "checkout-hide");
+                addClassToElement("checkout-bar-3", "checkout-bar");
+                removeClassFromElement("checkout-bar-close", "checkout-display-x");
+                addClassToElement("checkout-bar-close", "checkout-hide");
+
+                addClassToElement("checkout-navar", "checkout-hide-navar");
+                addClassToElement("checkout-main", "checkout-main-colapse");
+                //console.log( getElementTop("checkout-main") );
+            } else {
+                removeClassFromElement("checkout-bar-1", "checkout-bar");
+                addClassToElement("checkout-bar-1", "checkout-hide");
+                removeClassFromElement("checkout-bar-2", "checkout-bar");
+                addClassToElement("checkout-bar-2", "checkout-hide");
+                removeClassFromElement("checkout-bar-3", "checkout-bar");
+                addClassToElement("checkout-bar-3", "checkout-hide");
+                removeClassFromElement("checkout-bar-close", "checkout-hide");
+                addClassToElement("checkout-bar-close", "checkout-display-x");
+
+                removeClassFromElement("checkout-navar", "checkout-hide-navar");
+                removeClassFromElement("checkout-main", "checkout-main-colapse");
+                //console.log( getElementTop("checkout-main") );
+            }
+            hamburgerState = !hamburgerState;
+        }
+        //checkout-hamburger-menu
+        // Función para agregar una clase a un elemento
+        function addClassToElement(elementId, className) {
+        const element = document.getElementById(elementId);
+        element.classList.add(className);
+        }
+
+        // Función para quitar una clase de un elemento
+        function removeClassFromElement(elementId, className) {
+        const element = document.getElementById(elementId);
+        element.classList.remove(className);
+        }
+
+/*
+        Funcionalidades
+*/
+window.addEventListener('load', function() {
+        // Obtener una referencia al botón
+        const checkoutButton = document.getElementById('checkout-payment-button'); //checkout-item-delete
+        const checkoutDelete = document.getElementsByClassName('checkout-item-delete');
+
+        // Agregar el event listener
+        checkoutButton.addEventListener('click', function() {
+            alert('Se hizo clic en el botón "Pagar"');
+        });
+
+          // Recorrer cada elemento y agregar el event listener
+        for (let i = 0; i < checkoutDelete.length; i++) {
+            checkoutDelete[i].addEventListener('click', function() {
+                alert(`Se hizo clic en el elemento en la posición ${i} del array`);
+            });
+        }
+      
+});
+
+
+
+
+    </script>
+</head>
+<body>
+<div class="checkout-container">
+    <div id="checkout-menu">
+        <div id="checkout-logo">
+            <img src="./assets/checkout-lightning.png" alt="logo de flashivery">
+            <div class="checkout-hamburger-menu" onclick="toggleHamburger();">
+                <div class="checkout-bar" id="checkout-bar-1"></div>
+                <div class="checkout-bar" id="checkout-bar-2"></div>
+                <div class="checkout-bar" id="checkout-bar-3"></div>
+                <div class="checkout-bar-close"  id="checkout-bar-close">X</div>
+            </div>
+        </div>
+        <div>
+            <ul class="checkout-navar checkout-hide-navar" id="checkout-navar">
+                <li><a href="./comprar.html">Comprar</a></li>
+                <li><a href="./ganancias.html">Ganancias</a></li>
+                <li><a href="./pedidos.html">Pedidos</a></li>
+                <li><a href="./perfil.html">Perfil</a></li>
+                <li><a href="./deposit.html">Depositar</a></li>
+            </ul>
+        </div>
+        <button class="--bs-yellow checkout-button-primary"><span class="checkout-symbol">u$s</span>100.000<span class="checkout-decimal">59</span></button>
+    </div>
+
+    <div class="checkout-main checkout-main-colapse" id="checkout-main">
+        <div class="checkout-products">
+            <div class="checkout-item">
+                <img src="./assets/checkout-hamburguer.png" alt="Hamburguesa mc donalds" class="checkout-item-img">
+                <div class="checkout-item-description">
+                    Hamburguesa Big Mac.
+                </div>
+                <input type="number" name="quantity" value="2" class="checkout-item-quantity">
+                <div class="checkout-item-price">
+                    <span class="checkout-symbol">u$s</span>5
+                </div>
+                <button class="checkout-item-delete checkout-button-primary">Eliminar</button>
+            </div>
+            <div class="checkout-item">
+                <img src="./assets/checkout-coke.png" alt="Cocacola md Donalds" class="checkout-item-img">
+                <div class="checkout-item-description">
+                    Cocacola Grande.
+                </div>
+                <input type="number" name="quantity" value="1" class="checkout-item-quantity">
+                <div class="checkout-item-price">
+                    <span class="checkout-symbol">u$s</span>5
+                </div>
+                <button class="checkout-item-delete checkout-button-primary">Eliminar</button>
+            </div>
+            <div class="checkout-item">
+                <img src="./assets/checkout-coke.png" alt="Sprite md Donalds" class="checkout-item-img">
+                <div class="checkout-item-description">
+                    Sprite Grande.
+                </div>
+                <input type="number" name="quantity" value="1" class="checkout-item-quantity">
+                <div class="checkout-item-price">
+                    <span class="checkout-symbol">u$s</span>5
+                </div>
+                <button class="checkout-item-delete checkout-button-primary">Eliminar</button>
+            </div>
+        </div>
+
+        <div class="checkout-payment">
+            <div id="checkout-payment-title" class="checkout-payment-item">
+                <h3>Resumen de compra</h3>
+            </div>
+            <div id="checkout-payment-products" class="checkout-payment-item">
+                <div>Productos<span id="checkout-amount-products">(3)</span></div><div><span class="checkout-symbol">u$s</span>166.210</div>
+            </div>
+            <div id="checkout-payment-delivery" class="checkout-payment-item">
+                <div>Envío</div><div><span class="checkout-symbol">u$s</span>1.817<span class="checkout-decimal">59</span></div>
+            </div>
+            <div  id="checkout-payment-total" class="checkout-payment-item">
+                <div>Total</div><div><span class="checkout-symbol">u$s</span>168.027<span class="checkout-decimal">59</span></div>
+            </div>
+            <button id="checkout-payment-button" class="checkout-button-primary">Pagar</button>
+        </div>
+        <div style="height: 48px; width: 100%;"></div>
+        <footer>
+            © 2024 Flashivery. Tus pedidos a un click de distancia, todos los derechos reservados.
+        </footer>
+    </div>
+
+    <a href="#checkout-logo"><div class="checkout-goUp">
+        <p>↑</p>
+    </div></a>
+
+</div>
+</body>
+</html>
