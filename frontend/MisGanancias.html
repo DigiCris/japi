@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/frontend/styles/MisGanancias.css">
+  <title>⚡ Flashívery | Mis Ganancias</title>
+</head>
+
+<body>
+
+  <header>
+    <h1 class="logo">Mis ganancias</h1>
+  </header>
+
+  <main class="box container">
+    
+    <section class="buscar" id="buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+    </section>
+
+
+    <section class="busqueda-dinamica" id="busqueda-dinamica">
+
+      <article class="iconSearch">
+        <div class="fa-solid fa-magnifying-glass"></div>
+      </article>
+
+      <article class="fecha">
+        <h2>Por fecha</h2>
+
+        <input type="date" id="fecha" name="fecha" value="2018-07-22" min="2024-01-01" max="2030-12-31" />
+
+      </article>
+
+      <article class="estado">
+        <h2>Estado</h3>
+        <p>Selec</p>
+        <p>Clain</p>
+        <p>En Cuenta</p>
+      </article>
+
+      <article class="ganancias">
+        <h2>Calcular ganancias</h3>
+        <input type="radio" name="ganancias" id="si">
+        <label for="si">Si</label>
+          <br>
+        <input type="radio" name="ganancias" id="no">
+        <label for="no">No</label>
+      </article>
+
+        <button class="btn-buscar" type="button">Buscar</button>
+
+      <article class="cerrar-busqueda" id="cerrar-busqueda">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
+      </article>
+    </section>
+
+    <table id="table" style="width: 100%;">
+      <tr>
+        <th>Orden</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Estado</th>
+        <th>Monto</th>
+      </tr>
+
+      <tr>
+        <td>2033</td>
+        <td>10/3/23</td>
+        <td>15:54</td>
+        <td>En cuenta</td>
+        <td>0.4 USD</td>
+      </tr>
+
+      <tr>
+        <td>40953</td>
+        <td>10/3/24</td>
+        <td>10:00</td>
+        <td>Claim</td>
+        <td>0.3 USD</td>
+      </tr>
+
+      <tr>
+        <td> Linea 3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td> Linea 4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td> Linea 5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </main>
+
+  <footer>
+    <div class="pagination">
+      <a href="#" class="fa-solid fa-chevron-left arrow"></a>
+      <a href="#" class="page-link">1</a>
+      <a href="#" class="page-link">2</a>
+      <a href="#" class="page-link">3</a>
+      <a href="#" class="page-link">4</a>
+      <a href="#" class="page-link">5</a>
+      <a href="#" class="fa-solid fa-chevron-right arrow"></a>
+    </div>
+  </footer>
+
+  <script src="/frontend/script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+/*Reset*/
+html {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+body {
+  background: linear-gradient(135deg, lightblue, white);
+  overflow-x: hidden;
+}
+
+h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  color: rgb(50, 50, 50);
+  box-sizing: border-box;
+}
+
+
+/*Utilities*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.none {
+  display: none;
+}
+
+/**                   Estilos del Sitio           **/
+
+/******* Logo ********/
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+/********* Buscar ********/
+.buscar {
+  position: fixed;
+  right: 4rem;
+  width: 60px;
+  height: 60px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.buscar svg {
+  pointer-events: none;
+}
+
+.buscar:hover svg {
+  animation: shake 1s ease-in-out both;
+}
+
+/***  Busqueda Dinamica ***/
+.busqueda-dinamica {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  padding: 1.5rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  transition: transform .5s;
+  transform: translateY(-200%);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+/**Clases Dinamicas**/
+.busqueda-dinamica-activa {
+  transform: translateY(0);
+}
+
+/***  iconSearch  ***/
+.busqueda-dinamica .iconSearch{
+  grid-column: span 4;
+  margin-bottom: 2rem;
+}
+
+.busqueda-dinamica .iconSearch div {
+  font-size: 2rem;
+}
+
+/**Cerrar Busqueda**/
+.cerrar-busqueda {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.cerrar-busqueda svg{
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+  transition: fill .3s ease-in-out;
+}
+
+.cerrar-busqueda:hover svg {
+  fill: darkred;
+}
+
+/** Fecha **/
+.fecha input{
+  margin-top: .5rem;
+  padding: .5rem;
+  font-size: 1rem;
+}
+
+/** Ganancias **/
+.ganancias input,
+.ganancias label{
+  text-align: center;
+  cursor: pointer;
+}
+
+/**btnBuscar**/
+.btn-buscar {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color .5s;
+}
+
+.btn-buscar:hover {
+  background-color: darkred;
+}
+
+/*******Table******/
+.box {
+  padding: 50px;
+  min-width: -webkit-fill-available;  
+}
+
+table {
+  border-collapse: collapse;
+  transition: transform .5s;
+}
+
+.mover-tabla {
+  transform: translateY(100px);
+}
+
+th {
+  border: 1px black solid;
+  text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+}
+
+td {
+  border-bottom: 1px black solid;
+  text-align: center;
+  cursor: pointer;
+}
+
+td:hover {
+  box-shadow: 0 0 5px hsl(170, 85%, 39%),
+    0 0 1px hsl(184, 88%, 39%),
+    0 0 2px hsl(150, 75%, 39%),
+    0 0 3px rgba(186, 183, 13, 0.781);
+  background-color: #7ecee9;
+}
+
+tr {
+  font-size: 30px;
+  border-left: none;
+}
+
+
+/*Pagination*/
+footer {
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pagination>a:hover {
+  background-color: rgba(0, 0, 0, 0.1);;
+  border-radius: 100%;
+}
+
+.page-link {
+  text-align: center;
+  margin: auto 5px;
+  padding: 8px;
+  font-weight: 600;
+  height: 32px;
+  width: 32px;
+}
+
+.arrow {
+  display: flex;
+  padding: 12px;
+}
+
+
+/*Animaciones*/
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
