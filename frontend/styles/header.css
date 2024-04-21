@@ -37,7 +37,6 @@ TIPOGRAFÍAS:
     padding: 0;
     margin: 0;
     font-size: var(--font-size-text);
-    background-color: var(--menu-background);
     font-family: var(--font-body);
 }
 
@@ -84,6 +83,7 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 21px;
+    z-index: 300;
 }
 
 .menu .logo {

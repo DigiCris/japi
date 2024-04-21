@@ -42,7 +42,7 @@ TIPOGRAFÍAS:
     font-family: var(--font-body);
 }
 body {
-    background-color: var(--menu-background);
+    background-color: var(--main-dark-blue);
 }
 
 footer {

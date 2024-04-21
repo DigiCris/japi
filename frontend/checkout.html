@@ -4,102 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="styles/checkout.css">
     <script>
-        hamburgerState = false;
-        function toggleHamburger() {
-            if(hamburgerState) {
-                removeClassFromElement("checkout-bar-1", "checkout-hide");
-                addClassToElement("checkout-bar-1", "checkout-bar");
-                removeClassFromElement("checkout-bar-2", "checkout-hide");
-                addClassToElement("checkout-bar-2", "checkout-bar");
-                removeClassFromElement("checkout-bar-3", "checkout-hide");
-                addClassToElement("checkout-bar-3", "checkout-bar");
-                removeClassFromElement("checkout-bar-close", "checkout-display-x");
-                addClassToElement("checkout-bar-close", "checkout-hide");
-
-                addClassToElement("checkout-navar", "checkout-hide-navar");
-                addClassToElement("checkout-main", "checkout-main-colapse");
-                //console.log( getElementTop("checkout-main") );
+        var hamburger = false;
+        function showMenu() {
+            var elements;
+            var navbar = document.getElementsByClassName("navbar");
+            var hamburgerButton = document.getElementById("boton-hamburguesa");
+            if(hamburger===false) {
+                elements = document.getElementsByClassName("hidden");
+                for (var i = elements.length - 1; i >=0; i--) {
+                    elements[i].classList.add("visible");
+                    elements[i].classList.remove("hidden");        
+                }         
+                hamburgerButton.innerHTML="X";  
+                hamburgerButton.className = "item hamburguesa cerrar";       
+                navbar[0].classList.add("ham-blue");
+                navbar[0].classList.remove("ham-transparent"); 
             } else {
-                removeClassFromElement("checkout-bar-1", "checkout-bar");
-                addClassToElement("checkout-bar-1", "checkout-hide");
-                removeClassFromElement("checkout-bar-2", "checkout-bar");
-                addClassToElement("checkout-bar-2", "checkout-hide");
-                removeClassFromElement("checkout-bar-3", "checkout-bar");
-                addClassToElement("checkout-bar-3", "checkout-hide");
-                removeClassFromElement("checkout-bar-close", "checkout-hide");
-                addClassToElement("checkout-bar-close", "checkout-display-x");
-
-                removeClassFromElement("checkout-navar", "checkout-hide-navar");
-                removeClassFromElement("checkout-main", "checkout-main-colapse");
-                //console.log( getElementTop("checkout-main") );
+                elements = document.getElementsByClassName("visible");
+                for (var i = elements.length - 1; i >=0; i--) {
+                    elements[i].classList.add("hidden");   
+                    elements[i].classList.remove("visible");         
+                }     
+                hamburgerButton.innerHTML="=";     
+                hamburgerButton.className = "item hamburguesa"; 
+                navbar[0].classList.add("ham-transparent");
+                navbar[0].classList.remove("ham-blue");            
             }
-            hamburgerState = !hamburgerState;
+            hamburger = !hamburger;
         }
-        //checkout-hamburger-menu
-        // Función para agregar una clase a un elemento
-        function addClassToElement(elementId, className) {
-        const element = document.getElementById(elementId);
-        element.classList.add(className);
-        }
-
-        // Función para quitar una clase de un elemento
-        function removeClassFromElement(elementId, className) {
-        const element = document.getElementById(elementId);
-        element.classList.remove(className);
-        }
-
-/*
-        Funcionalidades
-*/
-window.addEventListener('load', function() {
-        // Obtener una referencia al botón
-        const checkoutButton = document.getElementById('checkout-payment-button'); //checkout-item-delete
-        const checkoutDelete = document.getElementsByClassName('checkout-item-delete');
-
-        // Agregar el event listener
-        checkoutButton.addEventListener('click', function() {
-            alert('Se hizo clic en el botón "Pagar"');
-        });
-
-          // Recorrer cada elemento y agregar el event listener
-        for (let i = 0; i < checkoutDelete.length; i++) {
-            checkoutDelete[i].addEventListener('click', function() {
-                alert(`Se hizo clic en el elemento en la posición ${i} del array`);
-            });
-        }
-      
-});
-
-
-
-
     </script>
 </head>
 <body>
-<div class="checkout-container">
-    <div id="checkout-menu">
-        <div id="checkout-logo">
-            <img src="./assets/checkout-lightning.png" alt="logo de flashivery">
-            <div class="checkout-hamburger-menu" onclick="toggleHamburger();">
-                <div class="checkout-bar" id="checkout-bar-1"></div>
-                <div class="checkout-bar" id="checkout-bar-2"></div>
-                <div class="checkout-bar" id="checkout-bar-3"></div>
-                <div class="checkout-bar-close"  id="checkout-bar-close">X</div>
+
+    <header>
+        <div class="menu">
+            <div class="logo">
+                <div class="logo-name">FLASHIVERY</div>
+                <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
             </div>
+            <ul class="navbar ham-transparent">
+                <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+                <li class="item hidden"><a href="approach.html">Approach</a></li>
+                <li class="item hidden"><a href="approach.html">Services</a></li>
+                <li class="item hidden"><a href="approach.html">Work</a></li>
+                <li class="item hidden"><a href="approach.html">Resources</a></li>
+                <li class="item hidden"><a href="approach.html">Blog</a></li>
+                <li class="item hidden"><a href="approach.html">About us</a></li>
+            </ul>             
         </div>
-        <div>
-            <ul class="checkout-navar checkout-hide-navar" id="checkout-navar">
-                <li><a href="./comprar.html">Comprar</a></li>
-                <li><a href="./ganancias.html">Ganancias</a></li>
-                <li><a href="./pedidos.html">Pedidos</a></li>
-                <li><a href="./perfil.html">Perfil</a></li>
-                <li><a href="./deposit.html">Depositar</a></li>
-            </ul>
-        </div>
-        <button class="--bs-yellow checkout-button-primary"><span class="checkout-symbol">u$s</span>100.000<span class="checkout-decimal">59</span></button>
-    </div>
+    </header>
+
+
+
+
+
+<div class="checkout-container">
 
     <div class="checkout-main checkout-main-colapse" id="checkout-main">
         <div class="checkout-products">
@@ -154,14 +117,55 @@ window.addEventListener('load', function() {
             <button id="checkout-payment-button" class="checkout-button-primary">Pagar</button>
         </div>
         <div style="height: 48px; width: 100%;"></div>
-        <footer>
-            © 2024 Flashivery. Tus pedidos a un click de distancia, todos los derechos reservados.
-        </footer>
-    </div>
 
-    <a href="#checkout-logo"><div class="checkout-goUp">
-        <p>↑</p>
-    </div></a>
+        
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer-call-to-action-text">
+                <span>
+                    Enteráte más
+                </span>
+                <form action="">
+                    <div>
+                    <input type="text" name="name" id="name" placeholder="Tu nombre">
+                    <input type="email" name="email" id="email" placeholder="Tu email">
+                    </div>
+                    <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+                </form>
+            </div>
+    
+            <div class="footer-logo-playstore">
+                <div class="footer-logos">
+                    <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+                    <div class="footer-redes-sociales">
+                        <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                        <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                        <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                        <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+                    </div>
+                </div>
+        
+                <div class="footer-playstore">
+                    <div class="footer-text-store">
+                        Proximamente nos encontrarás en
+                    </div>
+                    <div class="footer-store">
+                        <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                        <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+                    </div>
+                    <div class="footer-copyright">
+                        © 2024 Flashivery. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+    
+        </footer>
 
 </div>
 </body>
