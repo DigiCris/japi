@@ -1,0 +1,175 @@
+/*
+PALETA DE COLORES:
+
+#0e3bb7 Azul principal oscuro Secciones princ.
+#2435fd Azul secundario Secciones
+#12151d Negro Tipografías
+#303efc Azul primario logo
+#4050fa Azul secundario logo
+#7b86f7 Violeta claro terciario logo
+#27344a Gris para alguna Seccion o tipo
+
+TIPOGRAFÍAS:
+
+*FONTIN SANS(tipografía del logo)
+*Montserrat para el cuerpo y textos
+*/
+:root {
+    --main-dark-blue: #0e3bb7;
+    --secondary-blue: #2435fd;
+    --black: #12151d;
+    --primary-blue-logo: #303efc;
+    --secondary-blue-logo: #4050fa;
+    --tertiary-light-violet-logo: #7b86f7;
+    --gray-section: #27344a; /*#1e3045*/
+    --menu-background: #e6e6e6;
+  
+    --font-logo: 'FONTIN SANS', sans-serif;
+    --font-body: Montserrat, sans-serif;
+
+    --font-size-logo: 20px;
+    --font-size-text-bigger: 16px;
+    --font-size-text: 14px;
+}
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-text);
+    background-color: var(--menu-background);
+    font-family: var(--font-body);
+}
+
+.menu a {
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--main-dark-blue);
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+header {
+    border-top: 4px solid var(--main-dark-blue) ;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.menu .navbar li {
+    background-color: var(--main-dark-blue);
+    color: white;
+    font-size: var(--font-size-text);
+    min-width: 84px;
+    min-height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu .navbar li a:hover {
+    font-size: var(--font-size-text-bigger);
+}
+
+.menu .navbar .hamburguesa {
+    display: none;
+}
+
+.menu .navbar {
+    background-color: var(--main-dark-blue);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 21px;
+}
+
+.menu .logo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-top: 21px;
+}
+.menu img {
+    width: 50px;
+    background-color: white;
+}
+
+header {
+    height: 80px;
+    max-height: 80px;
+    background-color: white;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    align-self: center;
+}
+
+.logo-name {
+    font-size: var(--font-size-logo);
+    background-color: white;
+    font-family: var(--font-logo);
+}
+
+
+
+@media (max-width: 720px) {
+    .menu {
+        justify-content: flex-start;
+        margin-left: 8px;
+    }
+    .menu .navbar {
+        flex-direction: column;
+        position: absolute;
+        right: 8px;
+    }
+    .menu .navbar .hamburguesa {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: 20%;
+    }
+    .menu .navbar .cerrar {
+        align-self: flex-end;
+        margin-top: 8px;
+        width: 30px;
+        height: 30px;
+        color: var(--main-dark-blue);
+        background-color: white;
+        border-radius: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu .navbar .hidden {
+        display: none;
+    }
+    header .menu .ham-blue {
+        background-color: var(--main-dark-blue);
+        min-width: 100px;
+    }
+    
+    header .menu .ham-transparent {
+        background-color: transparent;
+    }
+    .navbar li {
+        height: 48px;
+    }
+
+    .menu .navbar li {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
