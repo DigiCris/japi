@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <meta name="description" content="Menu horizontal para tablets para arriba y vertical oculto por hamburguesa para mobile utilizando felxbox">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="logo">
+                <div class="logo-name">FLASHIVERY</div>
+                <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+            </div>
+            <ul class="navbar ham-transparent">
+                <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+                <li class="item hidden"><a href="approach.html">Approach</a></li>
+                <li class="item hidden"><a href="approach.html">Services</a></li>
+                <li class="item hidden"><a href="approach.html">Work</a></li>
+                <li class="item hidden"><a href="approach.html">Resources</a></li>
+                <li class="item hidden"><a href="approach.html">Blog</a></li>
+                <li class="item hidden"><a href="approach.html">About us</a></li>
+            </ul>             
+        </div>
+    </header>
+</body>
+</html>
+
+<script>
+    var hamburger = false;
+    function showMenu() {
+        var elements;
+        var navbar = document.getElementsByClassName("navbar");
+        var hamburgerButton = document.getElementById("boton-hamburguesa");
+        if(hamburger===false) {
+            elements = document.getElementsByClassName("hidden");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("visible");
+                elements[i].classList.remove("hidden");        
+            }         
+            hamburgerButton.innerHTML="X";  
+            hamburgerButton.className = "item hamburguesa cerrar";       
+            navbar[0].classList.add("ham-blue");
+            navbar[0].classList.remove("ham-transparent"); 
+        } else {
+            elements = document.getElementsByClassName("visible");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("hidden");   
+                elements[i].classList.remove("visible");         
+            }     
+            hamburgerButton.innerHTML="=";     
+            hamburgerButton.className = "item hamburguesa"; 
+            navbar[0].classList.add("ham-transparent");
+            navbar[0].classList.remove("ham-blue");            
+        }
+        hamburger = !hamburger;
+    }
+</script>

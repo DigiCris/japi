@@ -1,0 +1,14 @@
+PALETA DE COLORES:
+
+#0e3bb7 Azul principal oscuro Secciones princ.
+#2435fd Azul secundario Secciones
+#12151d Negro Tipografías
+#303efc Azul primario logo
+#4050fa Azul secundario logo
+#7b86f7 Violeta claro terciario logo
+#27344a Gris para alguna Seccion o tipo
+
+TIPOGRAFÍAS:
+
+*FONTIN SANS(tipografía del logo)
+*Montserrat para el cuerpo y textos
