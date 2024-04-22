@@ -1,9 +1,14 @@
+/***Custom Properties****/
+:root {
+  --font: "Montserrat", sans-serif;
+}
+
 /*Reset*/
 html {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
   height: 100vh;
+  font-family: var(--font);
 }
 
 body {
@@ -17,6 +22,14 @@ h2 {
 
 a {
   text-decoration: none;
+}
+
+textarea {
+  font-family: var(--font);
+  font-weight: 600;
+  width: 100%;
+  resize: none;
+  outline: none;
 }
 
 *,
@@ -92,7 +105,7 @@ a {
 }
 
 /***  iconSearch  ***/
-.busqueda-dinamica .iconSearch{
+.busqueda-dinamica .iconSearch {
   grid-column: span 4;
   margin-bottom: 2rem;
 }
@@ -102,34 +115,35 @@ a {
 }
 
 /**Cerrar Busqueda**/
-.cerrar-busqueda {
+.cerrar {
   position: absolute;
   top: 1rem;
   right: 1rem;
   cursor: pointer;
 }
 
-.cerrar-busqueda svg{
+.cerrar svg {
   width: 2rem;
   height: 2rem;
   pointer-events: none;
   transition: fill .3s ease-in-out;
 }
 
-.cerrar-busqueda:hover svg {
+.cerrar:hover svg {
   fill: darkred;
 }
 
 /** Fecha **/
-.fecha input{
+.fecha input {
   margin-top: .5rem;
   padding: .5rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /** Ganancias **/
 .ganancias input,
-.ganancias label{
+.ganancias label {
   text-align: center;
   cursor: pointer;
 }
@@ -152,7 +166,7 @@ a {
 /*******Table******/
 .box {
   padding: 50px;
-  min-width: -webkit-fill-available;  
+  min-width: -webkit-fill-available;
 }
 
 table {
@@ -172,9 +186,29 @@ th {
 }
 
 td {
+  position: relative;
   border-bottom: 1px black solid;
   text-align: center;
   cursor: pointer;
+}
+
+td::after {
+  position: absolute;
+  content: "";
+  left: 25%;
+  right: 25%;
+  background-color: #333;
+  height: .25rem;
+  transition: transform .4s ease-in-out;
+  transform: scaleX(0);
+}
+
+td::after {
+  bottom: 5%;
+}
+
+td:hover::after {
+  transform: scaleX(1);
 }
 
 td:hover {
@@ -190,11 +224,141 @@ tr {
   border-left: none;
 }
 
+/** Modal **/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 50vw;
+  height: 70vh;
+
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  transition: opacity .4s;
+
+  opacity: 0;
+  pointer-events: none;
+}   
+
+.modal-content h2 {
+  font-size: 2rem;
+}
+
+.modal-content h3 {
+  margin: 4rem auto .25rem 0;
+  font-size: 1.5rem;
+}
+
+.modal-content input {
+  margin-top: .5rem;
+  cursor: pointer;
+}
+
+.btn-modal {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.btn-modal:hover {
+  background-color: darkred;
+  color: #fff;
+}
+
+/**Mensaje Modal**/
+.mensaje-modal {
+  position: absolute;
+  width: max-content;
+  height: 100px;
+  
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: opacity .4s;
+  
+  opacity: 0;
+  pointer-events: none;
+}
+
+.smile-face {
+  margin-top: .5rem;
+  text-align: center;
+}
+
+.smile-face svg{
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: darkred;
+}
+
+/**Comentario Modal**/
+.comentario-modal {
+  position: absolute;
+  width: 50vw;
+  height: 70vh;
+
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  transition: opacity .4s;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.estrella-text {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.comentario-text {
+  font-size: 1.5rem;
+  margin: 2rem auto 1rem 0;
+}
+
+.estrellas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estrella svg {
+  width: 3rem;
+  height: 3rem;
+  margin: auto .5rem;
+  cursor: pointer;
+}
+
+.modal-active {
+  opacity: 1;
+  pointer-events: auto;
+}
 /*Pagination*/
 footer {
   position: fixed;
-  bottom: 1rem;
+  bottom: 2rem;
   width: 100%;
 
   display: flex;
@@ -202,27 +366,26 @@ footer {
 }
 
 .pagination {
+  font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.pagination>a:hover {
-  background-color: rgba(0, 0, 0, 0.1);;
+.pagination a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 100%;
 }
 
 .page-link {
-  text-align: center;
-  margin: auto 5px;
+  margin: auto 2px;
   padding: 8px;
-  font-weight: 600;
+  font-weight: 500;
   height: 32px;
   width: 32px;
 }
 
 .arrow {
-  display: flex;
   padding: 12px;
 }
 
@@ -230,6 +393,7 @@ footer {
 /*Animaciones*/
 
 @keyframes shake {
+
   10%,
   90% {
     transform: translate(-1px, 0);
