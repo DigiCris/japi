@@ -1,0 +1,84 @@
+
+/* ESTILOS PARA SECCIÓN CAJAS PRODUCTOS  */
+
+   /* --primary-blue-logo: #303efc;
+    --secondary-blue-logo: #4050fa;
+    --tertiary-light-violet-logo: #7b86f7; */
+
+    body{
+        background-color: var(--main-dark-blue);
+        
+    }
+
+
+
+    .cajas {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 25px;
+      }
+      
+      .box {
+        width: 15%;
+        background-color: #f7f7f7;
+        border: 5px rgb(0, 0, 0);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+      
+      .box img {
+        max-width: 80%;
+        height: auto;
+      }
+      
+      .box h6 {
+        font-size: 15px;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .box h5 {
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        font-weight: 800;
+        padding: 9px;
+        text-align: center;
+      }
+
+      .box p {
+        color: #f7f7f7;
+      }
+      
+      .box:hover {
+        background-color: #8089ebd5;
+      }
+      
+      .box:hover p {
+          color: black;
+        }
+      
+      .box:hover h6 {
+        color: black;
+      }
+      
+      .boton-box {
+        padding: 12px;
+        text-align: center;
+        font-size: 13px;
+        border-radius: 12px;
+        min-width: 140px;
+        background-color: var(--main-dark-blue);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+
+      }
+     

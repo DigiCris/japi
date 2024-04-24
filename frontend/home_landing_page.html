@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles_home_landing_page.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    
+    <title>Flashivery | Home</title>
+
+    <script>
+      var hamburger = false;
+      function showMenu() {
+        var elements;
+        var navbar = document.getElementsByClassName("navbar");
+        var hamburgerButton = document.getElementById("boton-hamburguesa");
+        if (hamburger === false) {
+          elements = document.getElementsByClassName("hidden");
+          for (var i = elements.length - 1; i >= 0; i--) {
+            elements[i].classList.add("visible");
+            elements[i].classList.remove("hidden");
+          }
+          hamburgerButton.innerHTML = "X";
+          hamburgerButton.className = "item hamburguesa cerrar";
+          navbar[0].classList.add("ham-blue");
+          navbar[0].classList.remove("ham-transparent");
+        } else {
+          elements = document.getElementsByClassName("visible");
+          for (var i = elements.length - 1; i >= 0; i--) {
+            elements[i].classList.add("hidden");
+            elements[i].classList.remove("visible");
+          }
+          hamburgerButton.innerHTML = "=";
+          hamburgerButton.className = "item hamburguesa";
+          navbar[0].classList.add("ham-transparent");
+          navbar[0].classList.remove("ham-blue");
+        }
+        hamburger = !hamburger;
+      }
+    </script>
+  </head>
+  
+
+    
+<body>
+
+    <!-- Sección HEADER -->
+    
+    <header>
+        <div class="menu">
+            <div class="logo">
+                <div class="logo-name">FLASHIVERY</div>
+                <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+            </div>
+            <ul class="navbar ham-transparent">
+                <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+                <li class="item hidden"><a href="approach.html">Approach</a></li>
+                <li class="item hidden"><a href="approach.html">Services</a></li>
+                <li class="item hidden"><a href="approach.html">Work</a></li>
+                <li class="item hidden"><a href="approach.html">Resources</a></li>
+                <li class="item hidden"><a href="approach.html">Blog</a></li>
+                <li class="item hidden"><a href="approach.html">About us</a></li>
+            </ul>             
+        </div>
+    </header>
+
+
+
+
+<div>
+
+    <!-- Sección de Ventajas -->
+
+    <div class="ventajas">
+        <h2>Ventajas de usar FLASHIVERY:</h2>
+        <div class="flex-container">
+            <div class="columna1">
+                <span>✔ Ventaja uno</span>
+                <span>✔ Ventaja dos</span>
+                <span>✔ Ventaja tres</span>
+                <span>✔ Ventaja cuatro</span>
+            </div>
+            <div class="columna2">
+                <span>✔ Ventaja cinco</span>
+                <span>✔ Ventaja seis</span>
+                <span>✔ Ventaja siete</span>
+                <span>✔ Ventaja ocho</span>
+            </div>                
+        </div>                
+    </div>    
+    <h3>Preguntas frecuentes</h3>
+    
+
+    <!-- Sección de Preguntas Frecuentes -->
+
+    <div class="pregFrec">        
+        <section id="preg1">                                     
+            <div class="span-container">
+                <span>When will i get access?</span><a href="#preg1">+</a>                  
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A reiciendis nostrum non assumenda iure voluptas eveniet, architecto harum sunt quia reprehenderit hic libero pariatur voluptatem recusandae exercitationem enim! Explicabo, inventore?
+                Iste non commodi nemo velit voluptate similique, maxime officiis repellat, inventore dolorum rerum! Id iure doloribus culpa eum maiores amet ducimus error aliquam hic quo tenetur laborum quae, adipisci reiciendis.</p>                   
+        </section>  
+        <section id="preg2">
+            <div class="span-container">
+                <span>Is this really free?</span><a href="#preg2">+</a>                    
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A reiciendis nostrum non assumenda iure voluptas eveniet, architecto harum sunt quia reprehenderit hic libero pariatur voluptatem recusandae exercitationem enim! Explicabo, inventore?
+                Iste non commodi nemo velit voluptate similique, maxime officiis repellat, inventore dolorum rerum! Id iure doloribus culpa eum maiores amet ducimus error aliquam hic quo tenetur laborum quae, adipisci reiciendis.</p>                                      
+        </section>
+        <section id="preg3">
+            <div class="span-container">
+                <span>Why do I need to fill out the information requested?</span><a href="#preg3">+</a>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A reiciendis nostrum non assumenda iure voluptas eveniet, architecto harum sunt quia reprehenderit hic libero pariatur voluptatem recusandae exercitationem enim! Explicabo, inventore?
+                Iste non commodi nemo velit voluptate similique, maxime officiis repellat, inventore dolorum rerum! Id iure doloribus culpa eum maiores amet ducimus error aliquam hic quo tenetur laborum quae, adipisci reiciendis.</p>                                      
+        </section>
+    </div>
+</div>
+        
+ <!-- Sección contenedora de cajas -->
+ <section class="cajas">
+    <h3>Ingresá al catálogo y descubrí nuestros productos más DESTACADOS!</h3>
+
+  </section>
+
+<!-- Sección de FOOTER -->
+
+        <footer>
+            <div class="footer-call-to-action-text">
+                <span>
+                    Enteráte más
+                </span>
+                <form action="">
+                    <div>
+                    <input type="text" name="name" id="name" placeholder="Tu nombre">
+                    <input type="email" name="email" id="email" placeholder="Tu email">
+                    </div>
+                    <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+                </form>
+            </div>
+    
+            <div class="footer-logo-playstore">
+                <div class="footer-logos">
+                    <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+                    <div class="footer-redes-sociales">
+                        <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                        <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                        <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                        <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+                    </div>
+                </div>
+        
+                <div class="footer-playstore">
+                    <div class="footer-text-store">
+                        Proximamente nos encontrarás en
+                    </div>
+                    <div class="footer-store">
+                        <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                        <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+                    </div>
+                    <div class="footer-copyright">
+                        © 2024 Flashivery. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+    
+        </footer>
+
+</div>
+</body>
+
+
+
+
+
+
+</html>

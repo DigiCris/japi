@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Seccion Ventajas */
+.ventajas {
+    display: grid;
+    background-color: #0e3bb7;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
+    font-size: x-large;
+}
+
+.flex-container {
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.columna1 {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 50px;
+    padding-top: 3rem;
+    font-size: x-large;
+}
+
+.columna2 {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 50px;
+    padding-top: 3rem;
+    font-size: x-large;
+}
+/* Fin Ventajas */
+
+/* Preguntas Frecuentes */
+
+h3{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    font-size: x-large;
+}
+
+.pregFrec{
+    display: flex;        
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: justify;
+    
+    
+}
+
+section{
+    background-color: #0e3bb7;
+    color: white;    
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+       
+}
+
+.span-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section a{
+    text-decoration: none;
+    color: white;
+    font-size: xx-large;
+}
+
+section p {
+    overflow: hidden;
+    max-height: 0;
+    text-align: justify;
+    transition: all 0.2s ease-in-out;
+}
+
+section:target p {
+    max-height: fit-content;
+    
+}
+/* Fin Preguntas Frecuentes */
+
+/* ESTILOS PARA SECCIÓN CAJAS PRODUCTOS  */
+
+   /* --primary-blue-logo: #303efc;
+    --secondary-blue-logo: #4050fa;
+    --tertiary-light-violet-logo: #7b86f7; */
+
+
+
+.cajas {
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+  
+  .box {
+    width: 20%;
+    background-color: rgb(255, 0, 0);
+    border: 5px rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .box img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .box h2 {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+  }
+  
+  .box p {
+    color: #f7f7f7;
+  }
+  
+  .box:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .box:hover p {
+      color: black;
+    }
+  
+  .box:hover h2 {
+    color: black;
+  }
+  
+  #box1 {
+    width: 20%;
+    background-color: rgb(255, 0, 0);
+    border: 5px rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  #box1:hover {
+    background-color: rgba(51, 3, 39, 0.795);
+    background-image: url("TP Favoritos/clase/assets/img/carga.png");
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+  }
+  
+  #box1 img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #box1 h2 {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+  }
+
+
+
+
+/* PRINCIPIO STYLES footer */
+
+/*
+PALETA DE COLORES:
+
+#0e3bb7 Azul principal oscuro Secciones princ.
+#2435fd Azul secundario Secciones
+#12151d Negro Tipografías
+#303efc Azul primario logo
+#4050fa Azul secundario logo
+#7b86f7 Violeta claro terciario logo
+#27344a Gris para alguna Seccion o tipo
+
+TIPOGRAFÍAS:
+
+*FONTIN SANS(tipografía del logo)
+*Montserrat para el cuerpo y textos
+*/
+:root {
+    --main-dark-blue: #0e3bb7;
+    --secondary-blue: #2435fd;
+    --black: #12151d;
+    --primary-blue-logo: #303efc;
+    --secondary-blue-logo: #4050fa;
+    --tertiary-light-violet-logo: #7b86f7;
+    --gray-section: #27344a; /*#1e3045*/
+    --menu-background: #e6e6e6;
+    --gray-footer: #f5f5f5;
+    --grey-border-button: #d1d1d1;
+  
+    --font-logo: 'FONTIN SANS', sans-serif;
+    --font-body: Montserrat, sans-serif;
+
+    --font-size-logo: 20px;
+    --font-size-text-bigger: 16px;
+    --font-size-text: 14px;
+}
+
+footer {
+    background-color: white;
+    min-height: 230px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-call-to-action-text {
+    background-color: var(--gray-footer);
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer-call-to-action-text span{
+    font-size: var(--font-size-logo);
+    font-family: var(--font-body);
+    font-weight: 600;
+    display: inline-block;
+    max-width: 200px;
+}
+.footer-call-to-action-text form{
+    font-size: var(--font-size-logo);
+    font-family: var(--font-body);
+    
+}
+.footer-call-to-action-text form input{
+    font-size: var(--font-size-text);
+    font-family: var(--font-body);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 8px;
+    padding-left: 8px;
+    border: 2px solid var(--grey-border-button);
+    border-radius: 8px;
+}
+.footer-call-to-action-text form input:first-child {
+    width: 100px;
+}
+  
+.footer-call-to-action-text form input:nth-child(2) {
+    width: 150px;
+}
+.footer-call-to-action-text form input:nth-child(3) {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.footer-primary-button {
+    background-color: var(--main-dark-blue);
+    color: white;
+}
+
+.footer-logo-playstore {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-logos {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    width: 200px;
+}
+
+.footer-redes-sociales img{
+    width: 48px;
+    margin-left: 24px;
+    margin-bottom: 24px;
+}
+
+
+.footer-playstore {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+
+.footer-text-store {
+    align-self: flex-start;
+    font-size: var(--font-size-text);
+    margin-left: 34px;
+}
+
+.footer-store img {
+    height: 36px;
+    margin-left: 34px;
+}
+
+.footer-copyright {
+    text-align: 24px;
+    align-self: flex-end;
+    font-size: var(--font-size-text-bigger);
+}
+
+
+.footer-call-to-action-text form {
+    display: flex;
+}
+
+
+@media (max-width: 720px) {
+    .footer-call-to-action-text {
+        flex-direction: column;
+        height: 170px;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-call-to-action-text input {
+        margin-top: 12px;
+        align-self: center;
+        justify-self: center;
+    }
+    .footer-call-to-action-text form {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-primary-button {
+        min-width: 292px;
+    }
+    .footer-logo-playstore {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-logo {
+        align-self: center;
+    }
+}
+

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles_home_landing_page.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/productos.css" />
+    
+    <title>Flashivery | Productos</title>
+
+    <script>
+      var hamburger = false;
+      function showMenu() {
+        var elements;
+        var navbar = document.getElementsByClassName("navbar");
+        var hamburgerButton = document.getElementById("boton-hamburguesa");
+        if (hamburger === false) {
+          elements = document.getElementsByClassName("hidden");
+          for (var i = elements.length - 1; i >= 0; i--) {
+            elements[i].classList.add("visible");
+            elements[i].classList.remove("hidden");
+          }
+          hamburgerButton.innerHTML = "X";
+          hamburgerButton.className = "item hamburguesa cerrar";
+          navbar[0].classList.add("ham-blue");
+          navbar[0].classList.remove("ham-transparent");
+        } else {
+          elements = document.getElementsByClassName("visible");
+          for (var i = elements.length - 1; i >= 0; i--) {
+            elements[i].classList.add("hidden");
+            elements[i].classList.remove("visible");
+          }
+          hamburgerButton.innerHTML = "=";
+          hamburgerButton.className = "item hamburguesa";
+          navbar[0].classList.add("ham-transparent");
+          navbar[0].classList.remove("ham-blue");
+        }
+        hamburger = !hamburger;
+      }
+    </script>
+  </head>
+  
+
+    
+<body>
+
+    <header>
+        <div class="menu">
+            <div class="logo">
+                <div class="logo-name">FLASHIVERY</div>
+                <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+            </div>
+            <ul class="navbar ham-transparent">
+                <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+                <li class="item hidden"><a href="approach.html">Approach</a></li>
+                <li class="item hidden"><a href="approach.html">Services</a></li>
+                <li class="item hidden"><a href="approach.html">Work</a></li>
+                <li class="item hidden"><a href="approach.html">Resources</a></li>
+                <li class="item hidden"><a href="approach.html">Blog</a></li>
+                <li class="item hidden"><a href="approach.html">About us</a></li>
+            </ul>             
+        </div>
+    </header>
+
+
+
+
+
+<div>
+
+ 
+        
+ <!-- Sección contenedora de cajas -->
+ <section class="cajas">
+    <h3>Catálogo de los productos más destacados de FLASHIVERY</h3>
+    <p>
+      En McDonald's, llevamos la experiencia de la hamburguesa a nuevas
+      alturas. Cada bocado es una obra maestra de sabor, con carne jugosa,
+      ingredientes frescos y sabores irresistibles que te transportarán a la
+      deliciosa esencia de la comida rápida de calidad. Desde la clásica Big
+      Mac, con su inconfundible salsa especial, hasta la Grand Tasty Turbo Bacon con
+      queso, con carne a la parrilla que despierta tus sentidos, nuestras
+      hamburguesas son un viaje que no vas a querer perderte.
+    </p>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Big_Mac.png" alt="Burguer 1" />
+      <h6>Big Mac</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Doble_Cuarto.png" alt="Burguer 2" />
+      <h6>Doble Cuarto de Libra</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Grand_Tasty.png" alt="Burguer 3" />
+      <h6>Grand Tasty TBT</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Mc_Crispy.png" alt="Burguer  4" />
+      <h6>McCrispy Cheddar</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Grand_Triple_McBacon.png" alt="Burguer  5" />
+      <h6>Triple McBacon</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/Mc_Crispy_BBQ.png" alt="Burguer  6" />
+      <h6>McCrispy BBQ</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/McMelt_Bacon_Chedar.png" alt="Burguer  7" />
+      <h6>McMelt Bacon</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+      <img src="./assets/Productos extras/MacNifica.png" alt="Burguer  8" />
+      <h6>McNífica</h6>
+      <h5>6.599 $</h5>
+      <button class="boton-box">Agregar al carrito</button>
+    </div>
+
+    <div class="box">
+        <img src="./assets/Productos extras/Big_Mac.png" alt="Burguer 1" />
+        <h6>Big Mac</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Doble_Cuarto.png" alt="Burguer 2" />
+        <h6>Doble Cuarto de Libra</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Grand_Tasty.png" alt="Burguer 3" />
+        <h6>Grand Tasty TBT</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Mc_Crispy.png" alt="Burguer  4" />
+        <h6>McCrispy Cheddar</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Grand_Triple_McBacon.png" alt="Burguer  5" />
+        <h6>Triple McBacon</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Mc_Crispy_BBQ.png" alt="Burguer  6" />
+        <h6>McCrispy BBQ</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/McMelt_Bacon_Chedar.png" alt="Burguer  7" />
+        <h6>McMelt Bacon</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/MacNifica.png" alt="Burguer  8" />
+        <h6>McNífica</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+
+      <div class="box">
+        <img src="./assets/Productos extras/Big_Mac.png" alt="Burguer 1" />
+        <h6>Big Mac</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Doble_Cuarto.png" alt="Burguer 2" />
+        <h6>Doble Cuarto de Libra</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Grand_Tasty.png" alt="Burguer 3" />
+        <h6>Grand Tasty TBT</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+  
+      <div class="box">
+        <img src="./assets/Productos extras/Mc_Crispy.png" alt="Burguer  4" />
+        <h6>McCrispy Cheddar</h6>
+        <h5>6.599 $</h5>
+        <button class="boton-box">Agregar al carrito</button>
+      </div>
+
+  </section>
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer-call-to-action-text">
+                <span>
+                    Enteráte más
+                </span>
+                <form action="">
+                    <div>
+                    <input type="text" name="name" id="name" placeholder="Tu nombre">
+                    <input type="email" name="email" id="email" placeholder="Tu email">
+                    </div>
+                    <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+                </form>
+            </div>
+    
+            <div class="footer-logo-playstore">
+                <div class="footer-logos">
+                    <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+                    <div class="footer-redes-sociales">
+                        <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                        <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                        <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                        <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+                    </div>
+                </div>
+        
+                <div class="footer-playstore">
+                    <div class="footer-text-store">
+                        Proximamente nos encontrarás en
+                    </div>
+                    <div class="footer-store">
+                        <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                        <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+                    </div>
+                    <div class="footer-copyright">
+                        © 2024 Flashivery. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+    
+        </footer>
+
+</div>
+</body>
+
+
+
+</html>
