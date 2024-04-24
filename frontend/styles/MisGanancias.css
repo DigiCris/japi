@@ -1,0 +1,417 @@
+/***Custom Properties****/
+:root {
+  --font: "Montserrat", sans-serif;
+}
+
+/*Reset*/
+html {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: var(--font);
+}
+
+body {
+  background: linear-gradient(135deg, lightblue, white);
+  overflow-x: hidden;
+}
+
+h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  font-family: var(--font);
+  font-weight: 600;
+  width: 100%;
+  resize: none;
+  outline: none;
+}
+
+*,
+*::before,
+*::after {
+  color: rgb(50, 50, 50);
+  box-sizing: border-box;
+}
+
+
+/*Utilities*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.none {
+  display: none;
+}
+
+/**                   Estilos del Sitio           **/
+
+/******* Logo ********/
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+/********* Buscar ********/
+.buscar {
+  position: fixed;
+  right: 4rem;
+  width: 60px;
+  height: 60px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.buscar svg {
+  pointer-events: none;
+}
+
+.buscar:hover svg {
+  animation: shake 1s ease-in-out both;
+}
+
+/***  Busqueda Dinamica ***/
+.busqueda-dinamica {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  padding: 1.5rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  transition: transform .5s;
+  transform: translateY(-200%);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+/**Clases Dinamicas**/
+.busqueda-dinamica-activa {
+  transform: translateY(0);
+}
+
+/***  iconSearch  ***/
+.busqueda-dinamica .iconSearch {
+  grid-column: span 4;
+  margin-bottom: 2rem;
+}
+
+.busqueda-dinamica .iconSearch div {
+  font-size: 2rem;
+}
+
+/**Cerrar Busqueda**/
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.cerrar svg {
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+  transition: fill .3s ease-in-out;
+}
+
+.cerrar:hover svg {
+  fill: darkred;
+}
+
+/** Fecha **/
+.fecha input {
+  margin-top: .5rem;
+  padding: .5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/** Ganancias **/
+.ganancias input,
+.ganancias label {
+  text-align: center;
+  cursor: pointer;
+}
+
+/**btnBuscar**/
+.btn-buscar {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color .5s;
+}
+
+.btn-buscar:hover {
+  background-color: darkred;
+}
+
+/*******Table******/
+.box {
+  padding: 50px;
+  min-width: -webkit-fill-available;
+}
+
+table {
+  border-collapse: collapse;
+  transition: transform .5s;
+}
+
+.mover-tabla {
+  transform: translateY(100px);
+}
+
+th {
+  border: 1px black solid;
+  text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+}
+
+td {
+  position: relative;
+  border-bottom: 1px black solid;
+  text-align: center;
+  cursor: pointer;
+}
+
+td::after {
+  position: absolute;
+  content: "";
+  left: 25%;
+  right: 25%;
+  background-color: #333;
+  height: .25rem;
+  transition: transform .4s ease-in-out;
+  transform: scaleX(0);
+}
+
+td::after {
+  bottom: 5%;
+}
+
+td:hover::after {
+  transform: scaleX(1);
+}
+
+td:hover {
+  box-shadow: 0 0 5px hsl(170, 85%, 39%),
+    0 0 1px hsl(184, 88%, 39%),
+    0 0 2px hsl(150, 75%, 39%),
+    0 0 3px rgba(186, 183, 13, 0.781);
+  background-color: #7ecee9;
+}
+
+tr {
+  font-size: 30px;
+  border-left: none;
+}
+
+/** Modal **/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 50vw;
+  height: 70vh;
+
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  transition: opacity .4s;
+
+  opacity: 0;
+  pointer-events: none;
+}   
+
+.modal-content h2 {
+  font-size: 2rem;
+}
+
+.modal-content h3 {
+  margin: 4rem auto .25rem 0;
+  font-size: 1.5rem;
+}
+
+.modal-content input {
+  margin-top: .5rem;
+  cursor: pointer;
+}
+
+.btn-modal {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.btn-modal:hover {
+  background-color: darkred;
+  color: #fff;
+}
+
+/**Mensaje Modal**/
+.mensaje-modal {
+  position: absolute;
+  width: max-content;
+  height: 100px;
+  
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: opacity .4s;
+  
+  opacity: 0;
+  pointer-events: none;
+}
+
+.smile-face {
+  margin-top: .5rem;
+  text-align: center;
+}
+
+.smile-face svg{
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: darkred;
+}
+
+/**Comentario Modal**/
+.comentario-modal {
+  position: absolute;
+  width: 50vw;
+  height: 70vh;
+
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  transition: opacity .4s;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.estrella-text {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.comentario-text {
+  font-size: 1.5rem;
+  margin: 2rem auto 1rem 0;
+}
+
+.estrellas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estrella svg {
+  width: 3rem;
+  height: 3rem;
+  margin: auto .5rem;
+  cursor: pointer;
+}
+
+.modal-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+/*Pagination*/
+footer {
+  position: fixed;
+  bottom: 2rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pagination a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+}
+
+.page-link {
+  margin: auto 2px;
+  padding: 8px;
+  font-weight: 500;
+  height: 32px;
+  width: 32px;
+}
+
+.arrow {
+  padding: 12px;
+}
+
+
+/*Animaciones*/
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
