@@ -1,0 +1,195 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, lightblue, white);
+  overflow: auto;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: rgb(50, 50, 50);
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: black;
+}
+
+main {
+  width: 100%;
+  min-height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.subtitulo {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.25em;
+  margin-top: 10px;
+}
+
+.tarjeta {
+  width: 70%;
+  min-width: 250px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+}
+
+.fotoPerfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.usuario {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.email {
+  color: dimgray;
+  font-size: 17px;
+}
+
+.contenedor {
+  margin-top: 10px;
+  font-size: 16.5px;
+}
+
+.contenedor a {
+  text-decoration: none;
+  display: block;
+}
+
+.informacion {
+  width: 100%;
+  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
+}
+
+.grupo {
+  margin-top: 10px;
+
+}
+
+label {
+/*   font-weight: bold; */
+  display: block;
+}
+
+input {
+  font-size: 17px;
+  padding-left: 5px;
+  width: 300px;
+  height: 30px;
+}
+
+#botonGuardar {
+  width: 280px;
+  margin-top: 5px;
+  margin-bottom: 50px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+  color: whitesmoke;
+  background-color: #002f64;
+  padding: 10px;
+}
+
+#botonGuardar:hover {
+  background-color: #215fa0;
+}
+
+#botonGuardar:active {
+  border: solid;
+  border-style: double;
+  border-width: 5px;
+}
+
+@media(min-width: 500px) {
+
+  .informacion {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  #botonGuardar {
+    margin-top: 30px;
+  }
+}
+
+@media(min-width: 1075px) {
+  .tarjeta{
+    width: 300px;
+    height: 400px;
+    justify-content: left;
+  }
+
+  .informacion{
+    width: 65%;
+    justify-content: left;
+    align-items: center;
+
+  }
+
+  #botonGuardar {
+    margin-top: 50px;
+  }
+
+  input {
+    width: 200px;
+    height: 25px;
+  }
+
+  .grupo {
+    margin: 5px;
+  }
+
+  .contenedor {
+    margin-top: 40px;
+  }
+
+  .logo {
+    font-size: 2em;
+  }
+
+  .subtitulo {
+    font-size: 1.15em;
+  }
+
+}
