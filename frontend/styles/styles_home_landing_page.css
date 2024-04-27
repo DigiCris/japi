@@ -4,6 +4,39 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:#f5f5f5;
+}
+
+.frase {
+    width: 60%;
+    
+}
+
+.frase h1 {
+   
+    font-size: 60px ;
+}
+
+
+.logo-hero {
+    width: 40%;
+    margin-left: auto; /* Mueve la imagen hacia la derecha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-hero img {
+    width: 95%; /* Aumenta el tamaño en un 20% */
+}
+
+
 /* Seccion Ventajas */
 .ventajas {
     display: grid;
@@ -105,17 +138,20 @@ section:target p {
 
 
 
-.cajas {
+
+
+.cajas-servicios {
     margin-top: 150px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 25px;
+    background-color:#f5f5f5;
   }
   
   .box {
     width: 20%;
-    background-color: rgb(255, 0, 0);
+    background-color:#4050fa;
     border: 5px rgb(0, 0, 0);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -141,7 +177,7 @@ section:target p {
   }
   
   .box:hover {
-    background-color: #f7f7f7;
+    background-color:#2435fd;
   }
   
   .box:hover p {
@@ -152,36 +188,7 @@ section:target p {
     color: black;
   }
   
-  #box1 {
-    width: 20%;
-    background-color: rgb(255, 0, 0);
-    border: 5px rgb(0, 0, 0);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    transition: background-color 0.3s;
-  }
   
-  #box1:hover {
-    background-color: rgba(51, 3, 39, 0.795);
-    background-image: url("TP Favoritos/clase/assets/img/carga.png");
-    background-repeat: no-repeat;
-    color: rgb(255, 255, 255);
-  }
-  
-  #box1 img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  #box1 h2 {
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-  }
-
 
 
 
