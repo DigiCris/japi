@@ -492,6 +492,10 @@ header {
   z-index: 200;
 }
 
+header .menu .navbar .item a {
+  font-size: var(--font-size-text);
+}
+
 @media (max-width: 720px) {
   main {
     height: 1300px;
@@ -512,3 +516,4 @@ header {
     height: 1400px;
   }
 }
+
