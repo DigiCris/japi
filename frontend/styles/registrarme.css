@@ -1,41 +1,91 @@
+:root {
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-yellow: #ffc107;
+  --bs-light-blue: lightblue;
+
+  --main-dark-blue: #0e3bb7;
+  --secondary-blue: #2435fd;
+  --black: #12151d;
+  --primary-blue-logo: #303efc;
+  --secondary-blue-logo: #4050fa;
+  --tertiary-light-violet-logo: #7b86f7;
+  --gray-section: #27344a; /*#1e3045*/
+  --menu-background: #e6e6e6;
+
+  --font-logo: 'FONTIN SANS', sans-serif;
+  --font-body: Montserrat, sans-serif;
+
+  --font-size-logo: 20px;
+  --font-size-text-bigger: 16px;
+  --font-size-text: 14px;
+
+}
+
+
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  color: rgb(50, 50, 50);
+  font-family: var(--font-body);
   box-sizing: border-box;
 }
 
-html,
-body {
-  width: 100vw;
-  min-height: 100vh;
-  background: linear-gradient(135deg, lightblue, white);
+html, body {
+  width: 100%;
+  background-color: var(--main-dark-blue);
+  font-family: var(--font-body);
+  font-size: 24px;
   overflow: auto;
+  position: relative;
 }
 
-header,
-footer {
+#login-footer {
+  position: absolute;
+  bottom: 0px;
   width: 100%;
-  height: 8%;
-  text-align: center;
+  padding: 0px;
+  bottom: 0px;
+}
+.footer-call-to-action-text {
+  width: 100%;
+  padding: 0px;
+}
+.footer-logo-playstore {
+  width: 100%;
+  padding: 0px;
+  background-color: white;
+}
+.logo-name {
+  font-size: var(--font-size-logo);
+  background-color: white;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  color: black;
+}
+
+/* .contenedorPadre { (para ocultar contenido del body)
+  width: 100%;
+  height: 100%;
+} */
+
+body {
+  position: relative;
+}
+.contenedorBotones button {
+  background-color: white;
+  color: black;
+  padding: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 main {
   width: 100%;
-  height: 84%;
+  height: 1100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-footer a {
-  text-decoration: none;
-  color: dodgerblue;
-}
-
-footer {
-  padding: 20px;
+  color: white;
+  margin-top: 100px;
 }
 
 .logo {
@@ -84,19 +134,13 @@ button {
   transition: background-color 0.3s;
 }
 
-#botonRegistrar {
-  border: none;
-  color: whitesmoke;
-  background-color: #002f64;
-  margin-top: 10%;
-}
 
 #botonVolver {
   margin-bottom: 10%;
   background: none;
   border: solid;
   border-width: 2px;
-  color: #002f64;
+  color: white;
 }
 
 #botonRegistrar:hover {
@@ -116,24 +160,14 @@ button {
   border-width: 5px;
 }
 
+
+
+
+
 @media (min-width: 600px) {
   body {
     width: 100%;
     height: 100%;
-  }
-
-  header,
-  footer {
-    width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main {
-    width: 100%;
-    height: 90%;
   }
 
   .logo {
@@ -149,7 +183,7 @@ button {
 
   input,
   select {
-    width: 350px;
+    width: 310px;
     height: 40px;
   }
 
@@ -164,6 +198,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 12px;
   }
 
   .contenedorBotones {
@@ -179,5 +214,33 @@ button {
     height: 35px;
     padding: 0;
     margin: 30px 10px;
+  }
+}
+
+
+header {
+  position: fixed;
+  width: 100%;
+}
+
+
+
+@media (max-width: 740px) {
+  main {
+    height: 1900px;
+  }
+  .contenedorBotones {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  main {
+    height: 1600px;
+  }
+  .contenedorBotones button {
+    margin-top: 24px;
   }
 }

@@ -4,12 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>⚡ Flashívery | Registrarme</title>
-  <link rel="stylesheet" href="/styles/registrarme.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/registrarme.css">
+
+  <script>
+    var hamburger = false;
+    function showMenu() {
+        var elements;
+        var navbar = document.getElementsByClassName("navbar");
+        var hamburgerButton = document.getElementById("boton-hamburguesa");
+        if(hamburger===false) {
+            elements = document.getElementsByClassName("hidden");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("visible");
+                elements[i].classList.remove("hidden");        
+            }         
+            hamburgerButton.innerHTML="X";  
+            hamburgerButton.className = "item hamburguesa cerrar";       
+            navbar[0].classList.add("ham-blue");
+            navbar[0].classList.remove("ham-transparent"); 
+        } else {
+            elements = document.getElementsByClassName("visible");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("hidden");   
+                elements[i].classList.remove("visible");         
+            }     
+            hamburgerButton.innerHTML="=";     
+            hamburgerButton.className = "item hamburguesa"; 
+            navbar[0].classList.add("ham-transparent");
+            navbar[0].classList.remove("ham-blue");            
+        }
+        hamburger = !hamburger;
+    }
+</script>
 </head>
 <body>
+
+  
+
+
   <header>
-    <div class="logo">⚡Flashívery</div>
-  </header>
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none; color:inherit;"> <div class="logo-name">FLASHIVERY</div></a>
+            <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+        </div>
+        <ul class="navbar ham-transparent">
+            <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+            <li class="item hidden"><a href="registrarme.html">Registro</a></li>
+            <li class="item hidden"><a href="login.html">Login</a></li>
+            <li class="item hidden"><a href="productos.html">Productos</a></li>
+            <li class="item hidden"><a href="miPerfil.html">Perfil</a></li>
+            <li class="item hidden"><a href="MisGanancias.html">Ganancias</a></li>
+            <li class="item hidden"><a href="checkout.html">Checkout</a></li>
+        </ul>             
+    </div>
+</header>
+
+
+
+
+
+
   <main>
     <p class="subtitulo">Registrarme</p>
 
@@ -51,24 +108,15 @@
         </div>
 
         <div class="grupo">
-          <label for="provincia">Provincia</label>
+          <label for="provincia">Estado</label>
           <input type="text" id="provincia" name="provincia" required />
         </div>
 
         <div class="grupo">
-          <label for="ciudad">Ciudad</label>
+          <label for="ciudad">Direccion</label>
           <input type="text" id="ciudad" name="ciudad" required />
         </div>
 
-        <div class="grupo">
-          <label for="rol">Rol</label>
-          <select id="rol" name="rol" required>
-            <option value="usuario">Usuario</option>
-            <option value="trabajador">Trabajador</option>
-            <option value="empresa">Empresa</option>
-          </select>
-        </div>
-      </div>
 
       <div class="contenedorBotones">
         <button id="botonRegistrar" type="submit">Registrar ></button>
@@ -77,16 +125,59 @@
           type="button"
           onclick="window.location.href='/login.html';"
         >
-          < Volver
+          Ya tengo cuenta
         </button>
       </div>
     </form>
   </main>
-  <footer>
-    <p>
-      Al continuar, aceptas los <a href="">Términos y Condiciones</a> y la
-      <a href="">Política de privacidad</a> de &copy; 2024 Flashívery.
-    </p>
-  </footer>
+
+  
+
+
+  <footer id="login-footer">
+    <div class="footer-call-to-action-text">
+        <span>
+            Enteráte más
+        </span>
+        <form action="">
+            <div>
+            <input type="text" name="name" id="name" placeholder="Tu nombre">
+            <input type="email" name="email" id="email" placeholder="Tu email">
+            </div>
+            <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+        </form>
+    </div>
+
+    <div class="footer-logo-playstore">
+        <div class="footer-logos">
+            <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+            <div class="footer-redes-sociales">
+                <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+            </div>
+        </div>
+
+        <div class="footer-playstore">
+            <div class="footer-text-store">
+                Proximamente nos encontrarás en
+            </div>
+            <div class="footer-store">
+                <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+            </div>
+            <div class="footer-copyright">
+                © 2024 Flashivery. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
 </body>
 </html>

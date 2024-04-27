@@ -1,195 +1,218 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, lightblue, white);
-  overflow: auto;
+:root {
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-yellow: #ffc107;
+  --bs-light-blue: lightblue;
+
+  --main-dark-blue: #0e3bb7;
+  --secondary-blue: #2435fd;
+  --black: #12151d;
+  --primary-blue-logo: #303efc;
+  --secondary-blue-logo: #4050fa;
+  --tertiary-light-violet-logo: #7b86f7;
+  --gray-section: #27344a; /*#1e3045*/
+  --menu-background: #e6e6e6;
+
+  --font-logo: 'FONTIN SANS', sans-serif;
+  --font-body: Montserrat, sans-serif;
+
+  --font-size-logo: 20px;
+  --font-size-text-bigger: 16px;
+  --font-size-text: 14px;
+
 }
+
 
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  color: rgb(50, 50, 50);
+  font-family: var(--font-body);
   box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  background-color: var(--main-dark-blue);
+  font-family: var(--font-body);
+  font-size: 24px;
+  overflow: auto;
+}
+body {
+  position: relative;
+}
+
+#login-footer {
+  position: fixed;
+  width: 100%;
+  padding: 0px;
+  bottom: 0px;
+}
+.footer-call-to-action-text {
+  width: 100%;
+  padding: 0px;
+}
+.footer-logo-playstore {
+  width: 100%;
+  padding: 0px;
+  background-color: white;
+}
+.logo-name {
+  font-size: var(--font-size-logo);
+  background-color: white;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  color: black;
+}
+
+
+main {
+  height: 950px;
+  margin-top: 100px;
 }
 
 header {
   width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
 }
 
-.logo {
-  font-size: 2.5em;
-  font-weight: 900;
-  color: black;
-}
-
-main {
-  width: 100%;
-  min-height: 80%;
+.miPerfil-informacion {
+  max-width: 900px;
+  max-height: 300px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 24px;
+  font-size: var(--font-size-text-bigger);
 }
-
-.subtitulo {
-  width: 100%;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.25em;
-  margin-top: 10px;
-}
-
-.tarjeta {
-  width: 70%;
-  min-width: 250px;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-}
-
-.fotoPerfil {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-}
-
-.usuario {
-  font-size: 1.5em;
-  margin-top: 20px;
-}
-
-.email {
-  color: dimgray;
-  font-size: 17px;
-}
-
-.contenedor {
-  margin-top: 10px;
-  font-size: 16.5px;
-}
-
-.contenedor a {
-  text-decoration: none;
-  display: block;
-}
-
-.informacion {
-  width: 100%;
-  padding-bottom: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 17px;
-}
-
-.grupo {
-  margin-top: 10px;
-
-}
-
-label {
-/*   font-weight: bold; */
-  display: block;
-}
-
-input {
-  font-size: 17px;
-  padding-left: 5px;
-  width: 300px;
+.miPerfil-informacion input {
+  width: 250px;
   height: 30px;
+  border-radius: 8px;
+  padding: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: var(--font-size-text-bigger);
+}
+.miPerfil-informacion label {
+  width: 250px;
+  height: 30px;
+  border-radius: 8px;
+  padding: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: var(--font-size-text-bigger);
+  font-weight: 600;
+  color: white;
+}
+.miPerfil-fotoPerfil {
+  width: 50%;
+  border-radius: 50%;
+  margin: 24px;
+}
+.miPerfil-grupo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 4px;
 }
 
-#botonGuardar {
-  width: 280px;
-  margin-top: 5px;
-  margin-bottom: 50px;
-  border-radius: 50px;
-  font-size: 16px;
+.miPerfil-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+  background-color: white;
+  border-radius: 12px;
+  margin-left: 48px;
+  position: relative;
+  top: 20px;
+}
+
+.tarjeta div {
+  font-size: var(--font-size-text-bigger);
+}
+.miPerfil-email-card {
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+#miPerfil-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#miPerfil-botonGuardar {
+  padding: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-self: flex-end;
+  border-radius: 8px;
+  border-bottom: 4px solid var(--gray-section);
+  border-right: 4px solid var(--gray-section);
+}
+#miPerfil-botonGuardar:hover {
+  background-color: var(--gray-section);
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
-  border: none;
-  color: whitesmoke;
-  background-color: #002f64;
-  padding: 10px;
+}
+.miPerfil-subtitulo {
+  width: 100%;
+  padding-top: 12px;
+}
+main {
+  text-align: center;
+}
+main h2 {
+  margin-bottom: 12px;
+  font-size: var(--font-size-logo);
+  font-weight: 700;
+  color: white;
+}
+.separador {
+  width: 100%; 
+  height: 48px;
 }
 
-#botonGuardar:hover {
-  background-color: #215fa0;
+@media (max-width: 840px) {
+  .miPerfil-informacion input {
+    width: 96%;
+  }
+  .miPerfil-informacion label {
+    width: 96%;
+  }
+  .miPerfil-grupo {
+    width: 40%;
+  }
+
 }
 
-#botonGuardar:active {
-  border: solid;
-  border-style: double;
-  border-width: 5px;
-}
-
-@media(min-width: 500px) {
-
-  .informacion {
+@media (max-width: 720px) {
+  .miPerfil-informacion input {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
+    position: relative;
+    right: 12px;
   }
-
-  #botonGuardar {
-    margin-top: 30px;
+  .miPerfil-informacion label {
+    width: 100%;
+    position: relative;
+    right: 12px;
   }
-}
-
-@media(min-width: 1075px) {
-  .tarjeta{
-    width: 300px;
-    height: 400px;
-    justify-content: left;
+  .miPerfil-tarjeta {
+    position: relative;
+    right: 24px;
   }
-
-  .informacion{
-    width: 65%;
-    justify-content: left;
-    align-items: center;
-
+  .miPerfil-grupo {
+    width: 100%;
   }
-
-  #botonGuardar {
-    margin-top: 50px;
+  main {
+    height: 1900px;
   }
-
-  input {
-    width: 200px;
-    height: 25px;
+  #miPerfil-container {
+    flex-direction: column;
+    gap: 48px;
   }
-
-  .grupo {
-    margin: 5px;
-  }
-
-  .contenedor {
-    margin-top: 40px;
-  }
-
-  .logo {
-    font-size: 2em;
-  }
-
-  .subtitulo {
-    font-size: 1.15em;
-  }
-
 }

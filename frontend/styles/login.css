@@ -1,16 +1,63 @@
+:root {
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-yellow: #ffc107;
+  --bs-light-blue: lightblue;
+
+  --main-dark-blue: #0e3bb7;
+  --secondary-blue: #2435fd;
+  --black: #12151d;
+  --primary-blue-logo: #303efc;
+  --secondary-blue-logo: #4050fa;
+  --tertiary-light-violet-logo: #7b86f7;
+  --gray-section: #27344a; /*#1e3045*/
+  --menu-background: #e6e6e6;
+
+  --font-logo: 'FONTIN SANS', sans-serif;
+  --font-body: Montserrat, sans-serif;
+
+  --font-size-logo: 20px;
+  --font-size-text-bigger: 16px;
+  --font-size-text: 14px;
+
+}
+
+
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  color: rgb(50, 50, 50);
+  font-family: var(--font-body);
   box-sizing: border-box;
 }
 
 html, body {
-  min-height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, lightblue, white);
+  width: 100%;
+  background-color: var(--main-dark-blue);
+  font-family: var(--font-body);
+  font-size: 24px;
   overflow: auto;
+}
+
+#login-footer {
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  bottom: 0px;
+}
+.footer-call-to-action-text {
+  width: 100%;
+  padding: 0px;
+}
+.footer-logo-playstore {
+  width: 100%;
+  padding: 0px;
+  background-color: white;
+}
+.logo-name {
+  font-size: var(--font-size-logo);
+  background-color: white;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  color: black;
 }
 
 /* .contenedorPadre { (para ocultar contenido del body)
@@ -18,33 +65,24 @@ html, body {
   height: 100%;
 } */
 
-header, footer {
-  width: 100vw;
-  height: 10vh;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+body {
+  position: relative;
 }
 
 main {
   width: 100%;
-  height: 80%;
+  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-footer a {
-  text-decoration: none;
-  color: dodgerblue;
+  color: white;
+  margin-top: 100px;
 }
 
 .logo {
   font-size: 2.5em;
   font-weight: 900;
-  color: black;
+  color: white;
   margin-top: 10px;
 }
 
@@ -52,8 +90,7 @@ footer a {
   font-weight: bold;
   text-align: center;
   font-size: 1.15em;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 100px;
 }
 
 .link {
@@ -63,7 +100,7 @@ footer a {
   justify-content: end;
   margin-top: 2%;
   text-decoration: none;
-  color: rgb(68, 68, 68);
+  color: white;
 }
 
 label {
@@ -106,7 +143,7 @@ button {
   background: none;
   border: solid;
   border-width: 2px;
-  color: #002f64;
+  color: white;
   margin-bottom: 50px;
 }
 
@@ -127,7 +164,15 @@ button {
   border-width: 5px;
 }
 
-@media (min-width: 600px) {
+
+
+@media (max-width: 720px) {
+  main {
+    height: 1100px;
+  }
+}
+
+@media (max-width: 600px) {
   .logo {
     font-size: 2em;
   }
@@ -142,4 +187,9 @@ button {
     width: 315px;
   }
 
+}
+
+header {
+  position: fixed;
+  width: 100%;
 }

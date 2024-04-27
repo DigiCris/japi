@@ -1,6 +1,25 @@
 /***Custom Properties****/
 :root {
   --font: "Montserrat", sans-serif;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-yellow: #ffc107;
+    --bs-light-blue: lightblue;
+  
+    --main-dark-blue: #0e3bb7;
+    --secondary-blue: #2435fd;
+    --black: #12151d;
+    --primary-blue-logo: #303efc;
+    --secondary-blue-logo: #4050fa;
+    --tertiary-light-violet-logo: #7b86f7;
+    --gray-section: #27344a; /*#1e3045*/
+    --menu-background: #e6e6e6;
+  
+    --font-logo: 'FONTIN SANS', sans-serif;
+    --font-body: Montserrat, sans-serif;
+  
+    --font-size-logo: 20px;
+    --font-size-text-bigger: 16px;
+    --font-size-text: 14px;
 }
 
 /*Reset*/
@@ -12,13 +31,43 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, lightblue, white);
+  background-color: var(--main-dark-blue);
   overflow-x: hidden;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+}
+
+#login-footer {
+  position: fixed;
+  width: 100%;
+  padding: 0px;
+  bottom: 0px;
+}
+.footer-call-to-action-text {
+  width: 100%;
+  padding: 0px;
+}
+.footer-logo-playstore {
+  width: 100%;
+  padding: 0px;
+  background-color: white;
+}
+.logo-name {
+  font-size: var(--font-size-logo);
+  background-color: white;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  color: black;
 }
 
 h2 {
   margin: 0;
 }
+
 
 a {
   text-decoration: none;
@@ -35,10 +84,16 @@ textarea {
 *,
 *::before,
 *::after {
-  color: rgb(50, 50, 50);
+  color: white;
+  font-size: var(--font-size-text-bigger);
   box-sizing: border-box;
 }
 
+main {
+  width: 100%;
+  height: 1000px;
+  color: white;
+}
 
 /*Utilities*/
 .container {
@@ -52,20 +107,14 @@ textarea {
 
 /**                   Estilos del Sitio           **/
 
-/******* Logo ********/
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  margin-top: 50px;
-}
+
 
 
 /********* Buscar ********/
 .buscar {
   position: fixed;
   right: 4rem;
+  top: 130px;
   width: 60px;
   height: 60px;
   background-color: aliceblue;
@@ -84,7 +133,9 @@ textarea {
 
 /***  Busqueda Dinamica ***/
 .busqueda-dinamica {
+  color: black;
   position: relative;
+  top: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 80vw;
@@ -102,16 +153,31 @@ textarea {
 /**Clases Dinamicas**/
 .busqueda-dinamica-activa {
   transform: translateY(0);
+  color: black;
 }
 
 /***  iconSearch  ***/
 .busqueda-dinamica .iconSearch {
   grid-column: span 4;
   margin-bottom: 2rem;
+  color: black;
+}
+
+#busqueda-dinamica h2,#busqueda-dinamica h3,#busqueda-dinamica p ,#busqueda-dinamica label ,#busqueda-dinamica input {
+  color: black;
+}
+#busqueda-dinamica .btn-buscar {
+  background-color: var(--main-dark-blue);
+  color: white;
+}
+#busqueda-dinamica .btn-buscar:hover {
+  background-color: var(--gray-section);
+  color: white;
 }
 
 .busqueda-dinamica .iconSearch div {
   font-size: 2rem;
+  color: black;
 }
 
 /**Cerrar Busqueda**/
@@ -217,6 +283,9 @@ td:hover {
     0 0 2px hsl(150, 75%, 39%),
     0 0 3px rgba(186, 183, 13, 0.781);
   background-color: #7ecee9;
+  color: black;
+  font-size: var(--font-size-text-bigger);
+  font-weight: 600;
 }
 
 tr {
@@ -356,9 +425,9 @@ tr {
   pointer-events: auto;
 }
 /*Pagination*/
-footer {
-  position: fixed;
-  bottom: 2rem;
+#misGanancias-pagination {
+  position: relative;
+  top: 120px;
   width: 100%;
 
   display: flex;
@@ -413,5 +482,33 @@ footer {
   40%,
   60% {
     transform: translate(4px, 0);
+  }
+}
+
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+}
+
+@media (max-width: 720px) {
+  main {
+    height: 1300px;
+  }
+  #busqueda-dinamica {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .iconSearch {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    height: 1400px;
   }
 }

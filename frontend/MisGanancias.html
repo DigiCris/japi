@@ -5,19 +5,66 @@
   <meta charset="UTF-8">
   <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/frontend/styles/MisGanancias.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/MisGanancias.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <title>⚡ Flashívery | Mis Ganancias</title>
+  <script>
+    var hamburger = false;
+    function showMenu() {
+        var elements;
+        var navbar = document.getElementsByClassName("navbar");
+        var hamburgerButton = document.getElementById("boton-hamburguesa");
+        if(hamburger===false) {
+            elements = document.getElementsByClassName("hidden");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("visible");
+                elements[i].classList.remove("hidden");        
+            }         
+            hamburgerButton.innerHTML="X";  
+            hamburgerButton.className = "item hamburguesa cerrar";       
+            navbar[0].classList.add("ham-blue");
+            navbar[0].classList.remove("ham-transparent"); 
+        } else {
+            elements = document.getElementsByClassName("visible");
+            for (var i = elements.length - 1; i >=0; i--) {
+                elements[i].classList.add("hidden");   
+                elements[i].classList.remove("visible");         
+            }     
+            hamburgerButton.innerHTML="=";     
+            hamburgerButton.className = "item hamburguesa"; 
+            navbar[0].classList.add("ham-transparent");
+            navbar[0].classList.remove("ham-blue");            
+        }
+        hamburger = !hamburger;
+    }
+</script>
 </head>
 
 <body>
 
   <header>
-    <h1 class="logo">Mis ganancias</h1>
-  </header>
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none; color:inherit;"> <div class="logo-name">FLASHIVERY</div></a>
+            <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+        </div>
+        <ul class="navbar ham-transparent">
+            <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+            <li class="item hidden"><a href="registrarme.html">Registro</a></li>
+            <li class="item hidden"><a href="login.html">Login</a></li>
+            <li class="item hidden"><a href="productos.html">Productos</a></li>
+            <li class="item hidden"><a href="miPerfil.html">Perfil</a></li>
+            <li class="item hidden"><a href="MisGanancias.html">Ganancias</a></li>
+            <li class="item hidden"><a href="checkout.html">Checkout</a></li>
+        </ul>             
+    </div>
+</header>
+
 
   <main class="box container">
 
@@ -94,27 +141,27 @@
       </tr>
 
       <tr>
-        <td> Linea 3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>2033</td>
+        <td>10/3/23</td>
+        <td>15:54</td>
+        <td id="item-tabla">En cuenta</td>
+        <td>0.4 USD</td>
       </tr>
 
       <tr>
-        <td> Linea 4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>2033</td>
+        <td>10/3/23</td>
+        <td>15:54</td>
+        <td id="item-tabla">En cuenta</td>
+        <td>0.4 USD</td>
       </tr>
 
       <tr>
-        <td> Linea 5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>2033</td>
+        <td>10/3/23</td>
+        <td>15:54</td>
+        <td id="item-tabla">En cuenta</td>
+        <td>0.4 USD</td>
       </tr>
     </table>
 
@@ -183,9 +230,8 @@
         <button type="button" class="btn-modal" id="cerrar">Dejar reseña</button>
       </article>
     </section>
-  </main>
 
-  <footer>
+  <div id="misGanancias-pagination">
     <div class="pagination">
       <a href="#" class="fa-solid fa-chevron-left arrow"></a>
       <div class="pagination-numbers">
@@ -197,7 +243,55 @@
       </div>
       <a href="#" class="fa-solid fa-chevron-right arrow"></a>
     </div>
-  </footer>
+  </div>
+
+  </main>
+
+
+
+
+
+  <footer>
+    <div class="footer-call-to-action-text">
+        <span>
+            Enteráte más
+        </span>
+        <form action="">
+            <div>
+            <input type="text" name="name" id="name" placeholder="Tu nombre">
+            <input type="email" name="email" id="email" placeholder="Tu email">
+            </div>
+            <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+        </form>
+    </div>
+
+    <div class="footer-logo-playstore">
+        <div class="footer-logos">
+            <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+            <div class="footer-redes-sociales">
+                <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+            </div>
+        </div>
+
+        <div class="footer-playstore">
+            <div class="footer-text-store">
+                Proximamente nos encontrarás en
+            </div>
+            <div class="footer-store">
+                <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+            </div>
+            <div class="footer-copyright">
+                © 2024 Flashivery. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+
+</footer>
+
 
   <script src="./script/script.js"></script>
 </body>

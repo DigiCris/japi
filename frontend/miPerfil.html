@@ -4,87 +4,167 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>⚡ Flashívery | Mi Perfil</title>
-    <link rel="stylesheet" href="/styles/miPerfil.css" />
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/miPerfil.css" />
+
+    <script>
+      var hamburger = false;
+      function showMenu() {
+          var elements;
+          var navbar = document.getElementsByClassName("navbar");
+          var hamburgerButton = document.getElementById("boton-hamburguesa");
+          if(hamburger===false) {
+              elements = document.getElementsByClassName("hidden");
+              for (var i = elements.length - 1; i >=0; i--) {
+                  elements[i].classList.add("visible");
+                  elements[i].classList.remove("hidden");        
+              }         
+              hamburgerButton.innerHTML="X";  
+              hamburgerButton.className = "item hamburguesa cerrar";       
+              navbar[0].classList.add("ham-blue");
+              navbar[0].classList.remove("ham-transparent"); 
+          } else {
+              elements = document.getElementsByClassName("visible");
+              for (var i = elements.length - 1; i >=0; i--) {
+                  elements[i].classList.add("hidden");   
+                  elements[i].classList.remove("visible");         
+              }     
+              hamburgerButton.innerHTML="=";     
+              hamburgerButton.className = "item hamburguesa"; 
+              navbar[0].classList.add("ham-transparent");
+              navbar[0].classList.remove("ham-blue");            
+          }
+          hamburger = !hamburger;
+      }
+  </script>
+
   </head>
   <body>
+
+    
     <header>
-      <div class="logo">⚡ Flashívery</div>
-    </header>
-    <main>
-      <p class="subtitulo">Mi Perfil</p>
-      <div class="tarjeta">
+      <div class="menu">
+          <div class="logo">
+              <a href="index.html" style="text-decoration:none; color:inherit;"> <div class="logo-name">FLASHIVERY</div></a>
+              <img src="./assets/Logos_Iconos/logo-sn.png" alt="logo de flashivery" class="header-logo-img">
+          </div>
+          <ul class="navbar ham-transparent">
+              <li class="item hamburguesa" onclick="showMenu()" id="boton-hamburguesa">=</li>
+              <li class="item hidden"><a href="registrarme.html">Registro</a></li>
+              <li class="item hidden"><a href="login.html">Login</a></li>
+              <li class="item hidden"><a href="productos.html">Productos</a></li>
+              <li class="item hidden"><a href="miPerfil.html">Perfil</a></li>
+              <li class="item hidden"><a href="MisGanancias.html">Ganancias</a></li>
+              <li class="item hidden"><a href="checkout.html">Checkout</a></li>
+          </ul>             
+      </div>
+  </header>
+
+<main>
+    <h2 class="miPerfil-subtitulo">Mi Perfil</h2>
+
+    <div id="miPerfil-container">
+      <div class="miPerfil-tarjeta">
         <img
-          src="/assets/img/foto-perfil.jpg"
+          src="./assets/img/foto-perfil.jpg"
           alt="Foto de perfil"
-          class="fotoPerfil"
+          class="miPerfil-fotoPerfil"
         />
-        <div class="usuario">Brian Pontoriero</div>
-        <div class="email">bponto@mail.com</div>
-        <div class="contenedor">
-          <a href=""><img class="icono" src="/assets/img/hogar.png" alt="casa">&ensp;Inicio</a>
-          <a href=""><img src="/assets/img/marcador.png" alt="gps" class="icono">&ensp;Mis direcciones</a>
-          <a href=""><img src="/assets/img/corazon.png" alt="corazon" class="icono">&ensp;Mis favoritos</a>
-          <a href=""><img src="/assets/img/editar.png" alt="pedido" class="icono">&ensp;Mis pedidos</a>
-        </div>
+        <div>Brian Pontoriero</div>
+        <div class="miPerfil-email-card">bponto@mail.com</div>
       </div>
 
-      <div class="informacion">
-        <div class="grupo">
+      <div class="miPerfil-informacion">
+        <div class="miPerfil-grupo">
           <label for="rol">Rol</label>
           <input  id="rol" type="text" name="rol" value="Usuario" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="firstName">Nombre</label>
           <input  id="firstName" type="text" name="firstName" value="Brian" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="lastName">Apellido</label>
           <input  id="lastName" type="text" name="lastName" value="Pontoriero" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="username">Usuario</label>
           <input  id="username" type="username" name="username" value="bponto93" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="phone">Teléfono</label>
           <input  id="phone" type="text" name="phone" value="1166445533" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="email">Correo electrónico</label>
           <input  id="email" type="text" name="email" value="bponto@mail.com" />
         </div>
-        <div class="grupo">
+        <div class="miPerfil-grupo">
           <label for="country">País</label>
           <input  id="country" type="text" name="country" value="Argentina" />
         </div>
-        <div class="grupo">
-          <label for="state">Provincia</label>
+        <div class="miPerfil-grupo">
+          <label for="state">Estado</label>
           <input  id="state" type="text" name="state" value="Buenos Aires" />
         </div>
-        <div class="grupo">
-          <label for="city">Ciudad</label>
+        <div class="miPerfil-grupo">
+          <label for="city">direccion</label>
           <input  id="city" type="text" name="city" value="Ituzaingó" />
         </div>
-        <div class="grupo">
-          <label for="kyc">KYC</label>
-          <input  id="kyc" type="text" name="kyc" value="Sí" />
-        </div>
-        <div class="grupo">
-          <label for="tarjeta">Tarjeta</label>
-          <input  id="tarjeta" type="text" name="kyc" value="Sí" />
-        </div>
-        <div class="grupo">
-          <label for="cuentaTarjeta">Cuenta Tarjeta</label>
-          <input id="cuentaTarjeta" type="text" name="cuentaTarjeta" value="xxxx xxxx xxxx 4132" />
-        </div>
-        <div class="grupo">
-          <label for="cuentaApp">Cuenta App</label>
-          <input  id="cuentaApp" type="text" name="cuentaApp" value="0x32183798231" />
-        </div>
+        <div class="separador"></div>
+        <button id="miPerfil-botonGuardar">Guardar</button>
       </div>
-      <button id="botonGuardar">Guardar</button>
-    </main>
+      
+    </div>
+    
+  </main>
+
+
     <footer>
-    </footer>
+      <div class="footer-call-to-action-text">
+          <span>
+              Enteráte más
+          </span>
+          <form action="">
+              <div>
+              <input type="text" name="name" id="name" placeholder="Tu nombre">
+              <input type="email" name="email" id="email" placeholder="Tu email">
+              </div>
+              <input type="submit" value="Recibir mas INFO" class="footer-primary-button">
+          </form>
+      </div>
+
+      <div class="footer-logo-playstore">
+          <div class="footer-logos">
+              <img src="./assets/Logos_Iconos/logo_ofi.png" alt="logo de flashivery en el footer" class="footer-logo">
+              <div class="footer-redes-sociales">
+                  <img src="./assets/Logos_Iconos/facebook.svg" alt="nuestro facebook" class="footer-facebook">
+                  <img src="./assets/Logos_Iconos/instagram.svg" alt="nuestro instagram" class="footer-instagram">
+                  <img src="./assets/Logos_Iconos/twitter.svg" alt="nuestro twitter" class="footer-twitter">
+                  <img src="./assets/Logos_Iconos/youtube.svg" alt="nuestro youtube" class="footer-youtube">
+              </div>
+          </div>
+  
+          <div class="footer-playstore">
+              <div class="footer-text-store">
+                  Proximamente nos encontrarás en
+              </div>
+              <div class="footer-store">
+                  <img src="./assets/Logos_Iconos/app_store.png" alt="Appstore">
+                  <img src="./assets/Logos_Iconos/google_play.png" alt="playstore">
+              </div>
+              <div class="footer-copyright">
+                  © 2024 Flashivery. All Rights Reserved.
+              </div>
+          </div>
+      </div>
+
+  </footer>
+
+
+
+
+
   </body>
 </html>

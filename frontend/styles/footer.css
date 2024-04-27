@@ -99,6 +99,7 @@ footer {
 .footer-primary-button {
     background-color: var(--main-dark-blue);
     color: white;
+    min-height: 48px;
 }
 
 .footer-logo-playstore {
@@ -172,6 +173,7 @@ footer {
     }
     .footer-primary-button {
         min-width: 292px;
+        min-height: 48px;
     }
     .footer-logo-playstore {
         flex-direction: column;
