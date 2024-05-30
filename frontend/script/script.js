@@ -68,42 +68,42 @@ botonRegistrar.addEventListener('click', function(event) {
 
 function getFormData() {
   $id = "apellido_error"
-  const apellido = document.getElementById('apellido').value;
-  validateName(apellido,$id);
+  var apellido = document.getElementById('apellido').value;
+  apellido= validateName(apellido,$id);
 
-  $id = "apellido_error"
-  const nombre = document.getElementById('nombre').value;
-  validateName(nombre,$id);
+  $id = "nombre_error"
+  var nombre = document.getElementById('nombre').value;
+  nombre = validateName(nombre,$id);
 
   $id = "usuario_error"
-  const usuario = document.getElementById('usuario').value;
-  validateUsername(usuario,$id);
+  var usuario = document.getElementById('usuario').value;
+  usuario= validateUsername(usuario,$id);
 
   $id = "telefono_error"
-  const telefono = document.getElementById('telefono').value;
-  validatePhone(telefono,$id);
+  var telefono = document.getElementById('telefono').value;
+  telefono = validatePhone(telefono,$id);
 
   $id = "email_error"
-  const email = document.getElementById('email').value;
-  validateEmail(email,$id);
+  var email = document.getElementById('email').value;
+  email = validateEmail(email,$id);
 
   $id = "password_error"
-  const password = document.getElementById('password').value;
-  validatePassword(password,$id);
+  var password = document.getElementById('password').value;
+  password = validatePassword(password,$id);
 
   $id = "pais_error"
-  const pais = document.getElementById('pais').value;
-  validateCountry(pais,$id);
+  var pais = document.getElementById('pais').value;
+  pais = validateCountry(pais,$id);
 
   $id = "provincia_error"
-  const provincia = document.getElementById('provincia').value;
-  validateName(provincia,$id);
+  var provincia = document.getElementById('provincia').value;
+  provincia = validateName(provincia,$id);
 
   $id = "address_error"
-  const address = document.getElementById('ciudad').value;
-  validateAddress(address,$id);
+  var address = document.getElementById('ciudad').value;
+  address = validateAddress(address,$id);
 
-  // Imprimo los inputs
+  // Imprimo los inputs por debug unicamente
   console.log('Apellido:', apellido);
   console.log('Nombre:', nombre);
   console.log('Usuario:', usuario);
@@ -113,16 +113,27 @@ function getFormData() {
   console.log('País:', pais);
   console.log('Estado:', provincia);
   console.log('Dirección:', address);
+
+  if (apellido && nombre && usuario && telefono && email && password && pais && provincia && address) {
+    alert('Validación JavaScript completada con éxito');
+  } else {
+    // Si alguna variable es falsa, mostrar un alert
+    alert('Por favor, ingrese bien los valores.');
+  }
+
 }
 
 
 
 ///////////////////// Validaciones //////////////////////////////////
+
 function validateName(input,$id) {
   // Regex para letras y espacios
   const nameRegex = /^[a-zA-Z\s]+$/;
   // true si nombre es valido, false si no lo es
   if (nameRegex.test(input)) {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return input; // El nombre es válido
   } else {
     // El nombre no es válido, mostrar un alert con el error
@@ -139,6 +150,8 @@ function validateUsername(username,$id) {
 
   // true si user es valido, false si no lo es
   if (usernameRegex.test(username)) {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return username; // El usuario es válido
   } else {
     writeAlert("3 a 20 caracteres alfanumericos y _.",$id);
@@ -155,6 +168,8 @@ function validatePhone(phone,$id) {
 
   // true si tel es valido, false si no lo es
   if (phoneRegex.test(phone)) {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return phone; // El teléfono es válido
   } else {
     // El teléfono no es válido, mostrar un alert con el error
@@ -171,10 +186,12 @@ function validateEmail(email,$id) {
 
   // true si cumple, false si no
   if (emailRegex.test(email)) {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return email; // El correo electrónico es válido
   } else {
     // El correo electrónico no es válido, mostrar un alert con el error
-    writeAlert("ej: example@domain.com, solo alfanumerico y especiales _, - y .",$id);
+    writeAlert("ej@dmn.co, solo alfanum y _, - .",$id);
     return false;
   }
 }
@@ -185,6 +202,8 @@ function validatePassword(password,$id) {
 
   // Verificar si la contraseña cumple con los requisitos
   if (passwordRegex.test(password)) {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return password; // La contraseña es válida
   } else {
     // La contraseña no es válida, determinar cuál es el error
@@ -206,10 +225,12 @@ function validatePassword(password,$id) {
 
 function validateCountry(country,$id) {
   // Convertir el país a minúsculas y quitar posibles puntos al final
-  const normalizedCountry = country.toLowerCase().replace(/\.$/, "");
+  const normalizedCountry = country.toLowerCase().replace(/\.$/, "").trim();
 
   // Verificar si el país es Argentina
   if (normalizedCountry === "argentina" || normalizedCountry === "arg") {
+    const errorElement = document.getElementById($id);
+    errorElement.classList.add('noneView');
     return "argentina"; // El país es válido
   } else {
     writeAlert("Solo Argentina por ahora.",$id);
@@ -239,6 +260,8 @@ function validateAddress(address,$id) {
     return false;
   }
   // Si la dirección cumple con todos los requisitos, se considera válida
+  const errorElement = document.getElementById($id);
+  errorElement.classList.add('noneView');
   return trimmedAddress;
 }
 
