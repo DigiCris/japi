@@ -66,6 +66,7 @@ botonRegistrar.addEventListener('click', function(event) {
   getFormData();
 });
 
+var login=false;
 function getFormData() {
   $id = "apellido_error"
   var apellido = document.getElementById('apellido').value;
@@ -116,6 +117,8 @@ function getFormData() {
 
   if (apellido && nombre && usuario && telefono && email && password && pais && provincia && address) {
     alert('Validación JavaScript completada con éxito');
+    document.getElementById("prodMenu").classList.remove("noneView");
+    login = true;
   } else {
     // Si alguna variable es falsa, mostrar un alert
     alert('Por favor, ingrese bien los valores.');
@@ -267,10 +270,11 @@ function validateAddress(address,$id) {
 
 
 function writeAlert($texto,$id) {
+  
   //alert($id+" => "+$texto);
   // Obtener el elemento p con el id "address_error"
   const addressErrorElement = document.getElementById($id);
-
+  addressErrorElement.classList.remove('noneView');
   // Escribir el texto "Error" en el elemento
   addressErrorElement.textContent = $texto;
 }
