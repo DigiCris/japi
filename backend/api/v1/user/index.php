@@ -843,7 +843,12 @@ function postFunctions($post) {
             include_once 'functions/write/setAll.php';
             $result = setAll($post['id'], $post['username'], $post['firstName'], $post['lastName'], $post['email'], $post['password'], $post['phone'], $post['country'], $post['state'], $post['city'], $post['rol'], $post['kyc'], $post['tarjeta'], $post['cuenta'], $post['admin'], $post['priceKm'], $post['zona1'], $post['zona2'], $post['zona3'], $post['zona4']);
             break;
-        
+            //login($username, $password)
+        case 'login':
+            debug('I am inside the post method login <br>');
+            include_once 'functions/read/login.php';
+            $result = login($post['username'], $post['password']);
+            break;
         case 'deleteAll':
             debug('I am inside the post method deleteAll <br>');
             include_once 'functions/delete/deleteAll.php';

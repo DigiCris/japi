@@ -676,7 +676,7 @@ class user
         {
             $success['success'] = false;
             $success['msg'] = $e->getMessage();
-            echo json_encode($success);
+            //echo json_encode($success);
         }
     }
 
@@ -690,10 +690,13 @@ class user
 */
     public function insert() {
         //SQL query for insertion of the data saved in this instance
-        $query='insert into user (id,username,firstName,lastName,email,password,phone,country,state,city,rol,kyc,tarjeta,cuenta,admin,priceKm,zona1,zona2,zona3,zona4) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        //echo "entre a insert";
+        $query='insert into user (username,firstName,lastName,email,password,phone,country,state,city,rol,kyc,tarjeta,cuenta,admin,priceKm,zona1,zona2,zona3,zona4) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        //echo "cree query";
         $result= $this->base->prepare($query);
+        //echo "la prepare";
 
-       $this->id =       htmlentities(addslashes($this->id));
+       //$this->id =       htmlentities(addslashes($this->id));
        $this->username =       htmlentities(addslashes($this->username));
        $this->firstName =       htmlentities(addslashes($this->firstName));
        $this->lastName =       htmlentities(addslashes($this->lastName));
@@ -714,11 +717,21 @@ class user
        $this->zona3 =       htmlentities(addslashes($this->zona3));
        $this->zona4 =       htmlentities(addslashes($this->zona4));
 
-        $success = $result->execute(array($this->id,$this->username,$this->firstName,$this->lastName,$this->email,$this->password,$this->phone,$this->country,$this->state,$this->city,$this->rol,$this->kyc,$this->tarjeta,$this->cuenta,$this->admin,$this->priceKm,$this->zona1,$this->zona2,$this->zona3,$this->zona4)); 
+       //echo "inserte datos";
+
+        try {
+            $success = $result->execute(array($this->username,$this->firstName,$this->lastName,$this->email,$this->password,$this->phone,$this->country,$this->state,$this->city,$this->rol,$this->kyc,$this->tarjeta,$this->cuenta,$this->admin,$this->priceKm,$this->zona1,$this->zona2,$this->zona3,$this->zona4));
+        } catch (PDOException $e) {
+            //echo "Error: " . $e->getMessage();
+            return false;
+        }
+        //echo "hizo la peticion";
 
         $result ->closeCursor();
             
         // I send success to handle mistakes
+        //echo "termine de insert";
+        //exit();
         return $success;
     
     }
@@ -2475,6 +2488,9 @@ class user
 */
     public function login($username, $password)
     {
+        //echo $username;
+        //echo $password;
+        //exit();
         $query = 'select * from user where username=?';
         $result = $this->base->prepare($query);
         $result->execute(array($username));

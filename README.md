@@ -24,6 +24,7 @@ https://cursoblockchain.com.ar/flashivery/api/v1/order/getByUserId/123
 		-setAll
 
 	-read
+		-login
 		-getAll
 		-getByAdmin
 		-getByCity
