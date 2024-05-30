@@ -276,3 +276,66 @@ function writeAlert($texto,$id) {
   // Escribir el texto "Error" en el elemento
   addressErrorElement.textContent = $texto;
 }
+
+
+
+//////////////////////////////////////// API ///////////////////////////////////////////
+
+function fetchAndDisplayMovieJSON() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Yjc5ZWI2OWI1NDkwNGNmYWU4ODA2MDYwZTZlZjZlNyIsInN1YiI6IjY2NTdkYjc5ZTI5Njg2OTY1Y2M0ODMwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aPvHmTafqWvA0aYfwYUcfQSmpLk0RoxkoV1NeZMuKBM'
+    }
+  };
+  
+  fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+    .then(response => response.json())
+    .then(response => printScreen(response))
+    .catch(err => {
+      setTimeout(hideSpinner,800);
+      console.error(err);
+    });
+}
+
+function printScreen(response) {
+  setTimeout(hideSpinner,800);
+  console.log(response["results"].length)
+  for(let i=0; i<response["results"].length; i++) {
+    image = "https://image.tmdb.org/t/p/w200"+response["results"][i]["poster_path"];
+    title = response["results"][i]["original_title"];
+    price = response["results"][i]["vote_average"];
+    //console.log(response["results"][i]);
+    console.log(image,title,price)    
+    document.querySelectorAll("body > div > section > div > img")[i].src = image;
+    document.querySelectorAll("body > div > section > div > h5")[i].textContent = title;
+    document.querySelectorAll("body > div > section > div > h6")[i].textContent = price+"☆";
+  }
+
+}
+
+
+function showSpinner() {
+  // Mostrar el spinner
+  document.getElementById('spinner').style.display = 'flex';
+
+  // Aplicar efecto de blur y brillo a la primera sección de la página
+  const targetSection = document.getElementsByTagName("section")[0];
+  if (targetSection) {
+    targetSection.style.filter = 'blur(10px) brightness(0.9)';
+    targetSection.style.pointerEvents = 'none';
+  }
+}
+
+function hideSpinner() {
+  // Ocultar el spinner
+  document.getElementById('spinner').style.display = 'none';
+
+  // Eliminar el efecto de blur y brillo de la primera sección de la página
+  const targetSection = document.getElementsByTagName("section")[0];
+  if (targetSection) {
+    targetSection.style.filter = 'none';
+    targetSection.style.pointerEvents = 'auto';
+  }
+}
