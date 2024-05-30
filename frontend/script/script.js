@@ -116,12 +116,10 @@ function getFormData() {
   console.log('Dirección:', address);
 
   if (apellido && nombre && usuario && telefono && email && password && pais && provincia && address) {
-    alert('Validación JavaScript completada con éxito');
-    document.getElementById("prodMenu").classList.remove("noneView");
-    login = true;
+    alert('Validación JavaScript completada con éxito en registro');
   } else {
     // Si alguna variable es falsa, mostrar un alert
-    alert('Por favor, ingrese bien los valores.');
+    alert('Por favor, ingrese bien los valores de registro.');
   }
 
 }
