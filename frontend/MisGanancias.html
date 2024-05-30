@@ -13,7 +13,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <title>⚡ Flashívery | Mis Ganancias</title>
+  <style>
+    .dissapear{
+        display: none !important;
+    }
+</style>
   <script>
+
+        ////// No te deja pasar si no estas logueado///////
+        if (!sessionStorage.getItem('flashiverySession') || sessionStorage.getItem('flashiverySession') === 'false') {
+            window.location.href = './login.html';
+        }else {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector("body > header > div > ul > li:nth-child(2)").classList.add("dissapear");
+                document.querySelector("body > header > div > ul > li:nth-child(3)").classList.add("dissapear");
+            });
+        }
+        //////////////////////////////////////////////////
+
     var hamburger = false;
     function showMenu() {
         var elements;

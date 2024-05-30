@@ -37,6 +37,14 @@ html, body {
   overflow: auto;
 }
 
+form p {
+  color: red;
+}
+
+.noneView {
+  display: none;
+}
+
 #login-footer {
   position: relative;
   width: 100%;

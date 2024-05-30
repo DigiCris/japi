@@ -11,8 +11,24 @@
     <link rel="stylesheet" href="./styles/header.css" />
     
     <title>Flashivery | Home</title>
+    <style>
+        .dissapear{
+            display: none !important;
+        }
+    </style>
 
     <script>
+        ////// No te deja pasar si no estas logueado///////
+        if (!sessionStorage.getItem('flashiverySession') || sessionStorage.getItem('flashiverySession') === 'false') {
+            window.location.href = './login.html';
+        }else {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector("body > header > div > ul > li:nth-child(2)").classList.add("dissapear");
+                document.querySelector("body > header > div > ul > li:nth-child(3)").classList.add("dissapear");
+            });
+        }
+        //////////////////////////////////////////////////
+
       var hamburger = false;
       function showMenu() {
         var elements;

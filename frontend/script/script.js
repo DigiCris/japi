@@ -85,7 +85,7 @@ function getFormData() {
   telefono = validatePhone(telefono,$id);
 
   $id = "email_error"
-  var email = document.getElementById('email').value;
+  var email = document.getElementById('email-reg').value;
   email = validateEmail(email,$id);
 
   $id = "password_error"
@@ -117,6 +117,7 @@ function getFormData() {
 
   if (apellido && nombre && usuario && telefono && email && password && pais && provincia && address) {
     alert('Validación JavaScript completada con éxito en registro');
+    register(apellido , nombre , usuario , telefono , email , password , pais , provincia ,address);
   } else {
     // Si alguna variable es falsa, mostrar un alert
     alert('Por favor, ingrese bien los valores de registro.');
@@ -277,9 +278,62 @@ function writeAlert($texto,$id) {
   addressErrorElement.textContent = $texto;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+function register(apellido , nombre , usuario , telefono , email , password , pais , provincia ,address) {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "method": "setAll",
+    "username": usuario,
+    "firstName": nombre,
+    "lastName": apellido,
+    "email": email,
+    "password": password,
+    "phone": telefono,
+    "country": pais,
+    "state": provincia,
+    "city": address,
+    "rol": 0,
+    "kyc": 0,
+    "tarjeta": "0x0",
+    "cuenta": "0x0",
+    "admin": 0,
+    "priceKm": 3,
+    "zona1": "45.93",
+    "zona2": "35.23",
+    "zona3": "25.45",
+    "zona4": "15.56"
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch("https://cursoblockchain.com.ar/flashivery/api/v1//user/setAll", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      msg = JSON.parse(result)["msg"];
+      console.log(msg);
+
+        success = JSON.parse(result)["success"];
+        if(success==false) {
+          alert("¡No pudimos crear su usuario!\n\n"+msg);
+        }else {
+            //alert("ahora puedes navegar");
+            alert(msg);
+            window.location.href = "https://cursoblockchain.com.ar/flashivery/login.html";
+        }        
+    })
+    .catch(error => console.log('error', error));  
+}
 
 
-//////////////////////////////////////// API ///////////////////////////////////////////
+//////////////////////////////////////// API Producto///////////////////////////////////////////
 
 function fetchAndDisplayMovieJSON() {
   const options = {
@@ -289,7 +343,8 @@ function fetchAndDisplayMovieJSON() {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Yjc5ZWI2OWI1NDkwNGNmYWU4ODA2MDYwZTZlZjZlNyIsInN1YiI6IjY2NTdkYjc5ZTI5Njg2OTY1Y2M0ODMwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aPvHmTafqWvA0aYfwYUcfQSmpLk0RoxkoV1NeZMuKBM'
     }
   };
-  
+  //https://developer.themoviedb.org/reference/discover-movie
+  //
   fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
     .then(response => response.json())
     .then(response => printScreen(response))
@@ -339,3 +394,4 @@ function hideSpinner() {
     targetSection.style.pointerEvents = 'auto';
   }
 }
+
