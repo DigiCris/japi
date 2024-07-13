@@ -13,6 +13,7 @@
         }
     </style>
     <script>
+        var totalProductPrice=0;
         ////// No te deja pasar si no estas logueado///////
         if (!sessionStorage.getItem('flashiverySession') || sessionStorage.getItem('flashiverySession') === 'false') {
             window.location.href = './login.html';
@@ -76,11 +77,18 @@
 
 
 
+    
+  <div id="spinner" style="display: none;">
+    <img src="./assets/Logos_Iconos/logo-sn.png" alt="Loading...">
+  </div>
+
+
 
 <div class="checkout-container">
 
     <div class="checkout-main checkout-main-colapse" id="checkout-main">
         <div class="checkout-products">
+            <!--
             <div class="checkout-item">
                 <img src="./assets/checkout-hamburguer.png" alt="Hamburguesa mc donalds" class="checkout-item-img">
                 <div class="checkout-item-description">
@@ -114,6 +122,7 @@
                 </div>
                 <button class="checkout-item-delete checkout-button-primary">Eliminar</button>
             </div>
+            -->
         </div>
 
         <div class="checkout-payment">
@@ -121,13 +130,13 @@
                 <h3>Resumen de compra</h3>
             </div>
             <div id="checkout-payment-products" class="checkout-payment-item">
-                <div>Productos<span id="checkout-amount-products">(3)</span></div><div><span class="checkout-symbol">u$s</span>166.210</div>
+                <div>Productos<span id="checkout-amount-products">(3)</span></div><div><span class="checkout-symbol">u$s</span>0</div>
             </div>
             <div id="checkout-payment-delivery" class="checkout-payment-item">
-                <div>Envío</div><div><span class="checkout-symbol">u$s</span>1.817<span class="checkout-decimal">59</span></div>
+                <div>Envío</div><div><span class="checkout-symbol">u$s</span>5<span class="checkout-decimal">59</span></div>
             </div>
             <div  id="checkout-payment-total" class="checkout-payment-item">
-                <div>Total</div><div><span class="checkout-symbol">u$s</span>168.027<span class="checkout-decimal">59</span></div>
+                <div>Total</div><div><span class="checkout-symbol">u$s</span>0<span class="checkout-decimal">59</span></div>
             </div>
             <button id="checkout-payment-button" class="checkout-button-primary">Pagar</button>
         </div>
@@ -183,5 +192,182 @@
         </footer>
 
 </div>
+
+
+<script>
+    
+
+function showSpinner() {
+  // Mostrar el spinner
+  document.getElementById('spinner').style.display = 'flex';
+
+  // Aplicar efecto de blur y brillo a la primera sección de la página
+  const targetSection = document.getElementsByTagName("section")[0];
+  if (targetSection) {
+    targetSection.style.filter = 'blur(10px) brightness(0.9)';
+    targetSection.style.pointerEvents = 'none';
+  }
+}
+
+function hideSpinner() {
+  // Ocultar el spinner
+  document.getElementById('spinner').style.display = 'none';
+
+  // Eliminar el efecto de blur y brillo de la primera sección de la página
+  const targetSection = document.getElementsByTagName("section")[0];
+  if (targetSection) {
+    targetSection.style.filter = 'none';
+    targetSection.style.pointerEvents = 'auto';
+  }
+}
+
+
+//cargar check out : #checkout-main > div.checkout-products > div:nth-child(1)
+
+//////////////////////////////////////// API Producto///////////////////////////////////////////
+
+function fetchAndDisplayCarrito() {
+
+    const checkoutProducts = document.querySelector(".checkout-products");
+    checkoutProducts.innerHTML = "";
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://cursoblockchain.com.ar/flashivery/api/v1//order/getAll", requestOptions)
+  .then(response => response.json())
+  .then(result => printScreenCheckOut(result))
+  .catch(error => {
+    setTimeout(hideSpinner,800);
+    console.log('error', error);
+  });
+}
+
+function printScreenCheckOut(response) {
+    setTimeout(hideSpinner,800);
+    console.log(response["response"].length)
+    for(let i=0; i<response["response"].length; i++) {
+    
+    image = response["response"][i]["quarrelPicture"];
+    title = response["response"][i]["order"];
+    price = response["response"][i]["price"];
+    q = response["response"][i]["shopId"];
+    id = response["response"][i]["id"];
+
+    totalProductPrice += (Number(price) * q);
+
+    console.log(title,price,image);
+
+    addCheckoutItem(title,price,image,q,id);
+
+    //document.querySelectorAll("#checkout-main > div.checkout-products");
+    }//#checkout-payment-products > div:nth-child(2)
+    document.querySelectorAll("#checkout-payment-products > div:nth-child(2)")[0].innerHTML = document.querySelectorAll("#checkout-payment-products > div:nth-child(2)")[0].innerHTML.replace("0",totalProductPrice);
+    document.querySelectorAll("#checkout-payment-total > div:nth-child(2)")[0].innerHTML = document.querySelectorAll("#checkout-payment-total > div:nth-child(2)")[0].innerHTML.replace("0",totalProductPrice+5);
+}
+
+
+
+
+function addCheckoutItem(title,price,image,value, id) {
+  // Crea el elemento HTML
+  const checkoutItem = document.createElement("div");
+  checkoutItem.classList.add("checkout-item");
+
+  // Agrega los elementos hijos
+  checkoutItem.innerHTML = `
+    <img src="`+image+`" alt="`+title+`" class="checkout-item-img">
+    <div class="checkout-item-description">
+        `+title+`.
+    </div>
+    <input type="number" name="quantity" value="`+value+`" class="checkout-item-quantity" onchange="change('`+title+`',`+id+`,`+price+`,'`+image+`',this.value)">
+    <div class="checkout-item-price">
+        <span class="checkout-symbol">u$s</span>`+price+`
+    </div>
+    <button class="checkout-item-delete checkout-button-primary" onclick="eliminar('`+title+`',`+id+`,`+price+`)">Eliminar</button>
+  `;
+
+  // Obtiene el primer div con clase "checkout-products"
+  const checkoutProducts = document.querySelector(".checkout-products");
+
+  // Agrega el nuevo elemento al final de los elementos con clase "checkout-item"
+  checkoutProducts.appendChild(checkoutItem);
+}
+
+
+function eliminar(title,id,price) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "method": "deleteById",
+    id
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("https://cursoblockchain.com.ar/flashivery/api/v1//order/deleteById", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        alert(title + " eliminada!");
+        window.location.reload();
+        //document.querySelectorAll("#checkout-payment-products > div:nth-child(2)")[0].innerHTML = document.querySelectorAll("#checkout-payment-products > div:nth-child(2)")[0].innerHTML.replace("0",totalProductPrice);
+        //document.querySelectorAll("#checkout-payment-total > div:nth-child(2)")[0].innerHTML = document.querySelectorAll("#checkout-payment-total > div:nth-child(2)")[0].innerHTML.replace("0",totalProductPrice+5);
+    })
+    .catch(error => console.log('error', error));
+
+}
+
+function change(title,id,price,image="hola",q=5) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "method": "updateAllById",
+    "shop": "Mc Donalds",
+    "shopId": q,
+    "order": title,
+    "shipDate": "2024-03-29",
+    "Status": "pendiente",
+    price,
+    "pickAddress": "10 15",
+    "deliveryAddress": "10 16",
+    "quarrelDescription": "",
+    "quarrelPicture": image,
+    "reviewDescription": "",
+    "reviewLevel": 6,
+    "deliveryId": 987654,
+    "deliveryMoney": "$5.00",
+    "userId": 1,
+    id
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("https://cursoblockchain.com.ar/flashivery/api/v1//order/updateAllById", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+        alert("cambio a "+q+" "+title);
+        window.location.reload();
+    })
+    .catch(error => console.log('error', error));
+}
+
+
+fetchAndDisplayCarrito();
+</script>
 </body>
 </html>

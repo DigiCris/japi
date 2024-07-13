@@ -1,0 +1,49 @@
+{
+    "results": [
+      {
+        "poster_path": "checkout-coke.png",
+        "original_title": "Cocacola Grande",
+        "vote_average": 8
+      },
+      {
+        "poster_path": "Productos%20extras/Grand_Tasty.png",
+        "original_title": "Hamburguesa Grand Tasty",
+        "vote_average": 10
+      },
+      {
+        "poster_path": "Productos%20extras/Big_Mac.png",
+        "original_title": "Hamburguesa Big Mac",
+        "vote_average": 9
+      },
+      {
+        "poster_path": "Productos%20extras/Doble_Cuarto.png",
+        "original_title": "Hamburguesa Doble Cuarto de libra",
+        "vote_average": 7
+      },
+      {
+        "poster_path": "Productos%20extras/Grand_Triple_McBacon.png",
+        "original_title": "Hamburguesa Grand Triple McBacon",
+        "vote_average": 6
+      },
+      {
+        "poster_path": "Productos%20extras/MacNifica.png",
+        "original_title": "Hamburguesa MacNifica",
+        "vote_average": 5.5
+      },
+      {
+        "poster_path": "Productos%20extras/Grand_Tasty.png",
+        "original_title": "Hamburguesa Grand Tasty",
+        "vote_average": 10
+      },
+      {
+        "poster_path": "Productos%20extras/Grand_Tasty.png",
+        "original_title": "Hamburguesa Grand Tasty",
+        "vote_average": 10
+      },
+      {
+        "poster_path": "Productos%20extras/Grand_Tasty.png",
+        "original_title": "Hamburguesa Grand Tasty",
+        "vote_average": 10
+      }
+    ]
+  }

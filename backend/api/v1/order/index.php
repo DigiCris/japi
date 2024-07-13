@@ -628,7 +628,11 @@ function postFunctions($post) {
         case 'setAll':
             debug('I am inside the post method setAll <br>');
             include_once 'functions/write/setAll.php';
+            debug('after include setAll.php <br>');
+            
             $result = setAll($post['id'], $post['shop'], $post['shopId'], $post['order'], $post['shipDate'], $post['Status'], $post['price'], $post['pickAddress'], $post['deliveryAddress'], $post['quarrelDescription'], $post['quarrelPicture'], $post['reviewDescription'], $post['reviewLevel'], $post['deliveryId'], $post['deliveryMoney'], $post['userId']);
+            debug('after calling function <br>');
+            exit();
             break;
         
         case 'deleteAll':

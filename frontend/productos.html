@@ -20,6 +20,10 @@
 
     <script>
 
+
+var ourMenu = [];
+
+
         ////// No te deja pasar si no estas logueado///////
         if (!sessionStorage.getItem('flashiverySession') || sessionStorage.getItem('flashiverySession') === 'false') {
             window.location.href = './login.html';

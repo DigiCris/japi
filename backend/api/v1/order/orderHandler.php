@@ -558,13 +558,14 @@ class order
 * \return   $success  (bool) true if it has added the value, false in any other case.
 */
     public function insert() {
+        debug('in insert<br>');
         //SQL query for insertion of the data saved in this instance
 
-        $query = 'INSERT INTO `order` (id, shop, shopId, `order`, shipDate, Status, price, pickAddress, deliveryAddress, quarrelDescription, quarrelPicture, reviewDescription, reviewLevel, deliveryId, deliveryMoney, userId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $query = 'INSERT INTO `order` (shop, shopId, `order`, shipDate, `Status`, price, pickAddress, deliveryAddress, quarrelDescription, quarrelPicture, reviewDescription, reviewLevel, deliveryId, deliveryMoney, userId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
         $result= $this->base->prepare($query);
 
-       $this->id =       htmlentities(addslashes($this->id));
+       //$this->id =       htmlentities(addslashes($this->id));
        $this->shop =       htmlentities(addslashes($this->shop));
        $this->shopId =       htmlentities(addslashes($this->shopId));
        $this->order =       htmlentities(addslashes($this->order));
@@ -582,7 +583,7 @@ class order
        $this->userId =       htmlentities(addslashes($this->userId));
 
 
-        $success = $result->execute(array($this->id,$this->shop,$this->shopId,$this->order,$this->shipDate,$this->Status,$this->price,$this->pickAddress,$this->deliveryAddress,$this->quarrelDescription,$this->quarrelPicture,$this->reviewDescription,$this->reviewLevel,$this->deliveryId,$this->deliveryMoney,$this->userId)); 
+        $success = $result->execute(array($this->shop,$this->shopId,$this->order,$this->shipDate,$this->Status,$this->price,$this->pickAddress,$this->deliveryAddress,$this->quarrelDescription,$this->quarrelPicture,$this->reviewDescription,$this->reviewLevel,$this->deliveryId,$this->deliveryMoney,$this->userId)); 
 
         $result ->closeCursor();
             
@@ -599,36 +600,34 @@ class order
 * \param $id    identifier used to find rows to change.
 * \return   $success  (bool) true if it has updated the value, false in any other case.
 */
-    public function updateAllById($Id) {
-        //SQL query for updating
-        $query='update `order` set shop=?, shopId=?, order=?, shipDate=?, Status=?, price=?, pickAddress=?, deliveryAddress=?, quarrelDescription=?, quarrelPicture=?, reviewDescription=?, reviewLevel=?, deliveryId=?, deliveryMoney=?, userId=? where id=?';
-        $result= $this->base->prepare($query);
+public function updateAllById($Id) {
+    //SQL query for updating
+    $query = 'update `order` set shop=?, shopId=?, `order`=?, shipDate=?, Status=?, price=?, pickAddress=?, deliveryAddress=?, quarrelDescription=?, quarrelPicture=?, reviewDescription=?, reviewLevel=?, deliveryId=?, deliveryMoney=?, userId=? where id=?';
+    $result = $this->base->prepare($query);
 
-       $this->shop =       htmlentities(addslashes($this->shop));
-       $this->shopId =       htmlentities(addslashes($this->shopId));
-       $this->order =       htmlentities(addslashes($this->order));
-       $this->shipDate =       htmlentities(addslashes($this->shipDate));
-       $this->Status =       htmlentities(addslashes($this->Status));
-       $this->price =       htmlentities(addslashes($this->price));
-       $this->pickAddress =       htmlentities(addslashes($this->pickAddress));
-       $this->deliveryAddress =       htmlentities(addslashes($this->deliveryAddress));
-       $this->quarrelDescription =       htmlentities(addslashes($this->quarrelDescription));
-       $this->quarrelPicture =       htmlentities(addslashes($this->quarrelPicture));
-       $this->reviewDescription =       htmlentities(addslashes($this->reviewDescription));
-       $this->reviewLevel =       htmlentities(addslashes($this->reviewLevel));
-       $this->deliveryId =       htmlentities(addslashes($this->deliveryId));
-       $this->deliveryMoney =       htmlentities(addslashes($this->deliveryMoney));
-       $this->userId =       htmlentities(addslashes($this->userId));
+    $this->shop = htmlentities(addslashes($this->shop));
+    $this->shopId = htmlentities(addslashes($this->shopId));
+    $this->order = htmlentities(addslashes($this->order));
+    $this->shipDate = htmlentities(addslashes($this->shipDate));
+    $this->Status = htmlentities(addslashes($this->Status));
+    $this->price = htmlentities(addslashes($this->price));
+    $this->pickAddress = htmlentities(addslashes($this->pickAddress));
+    $this->deliveryAddress = htmlentities(addslashes($this->deliveryAddress));
+    $this->quarrelDescription = htmlentities(addslashes($this->quarrelDescription));
+    $this->quarrelPicture = htmlentities(addslashes($this->quarrelPicture));
+    $this->reviewDescription = htmlentities(addslashes($this->reviewDescription));
+    $this->reviewLevel = htmlentities(addslashes($this->reviewLevel));
+    $this->deliveryId = htmlentities(addslashes($this->deliveryId));
+    $this->deliveryMoney = htmlentities(addslashes($this->deliveryMoney));
+    $this->userId = htmlentities(addslashes($this->userId));
 
-        $success = $result->execute(array($this->shop,$this->shopId,$this->order,$this->shipDate,$this->Status,$this->price,$this->pickAddress,$this->deliveryAddress,$this->quarrelDescription,$this->quarrelPicture,$this->reviewDescription,$this->reviewLevel,$this->deliveryId,$this->deliveryMoney,$this->userId, $this->id)); 
+    $success = $result->execute(array($this->shop, $this->shopId, $this->order, $this->shipDate, $this->Status, $this->price, $this->pickAddress, $this->deliveryAddress, $this->quarrelDescription, $this->quarrelPicture, $this->reviewDescription, $this->reviewLevel, $this->deliveryId, $this->deliveryMoney, $this->userId, $Id));
 
-        $result ->closeCursor();
-            
-        // I send success to handle mistakes
-        return $success;
-    
-    }
-    
+    $result->closeCursor();
+
+    // I send success to handle mistakes
+    return $success;
+}    
 
 
 /*!

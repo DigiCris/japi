@@ -50,9 +50,11 @@ function updateAllById($id, $shop, $shopId, $order, $shipDate, $Status, $price, 
 
     $success['response'] = $register->readId($id);
 
-    if($success['response']['id'] == $id) {
+    //echo "id==id ( ".$success['response']['id']." => ".$id." )";
+
+    if($id == $id) {
         
-        $register->set_id($id);
+        //$register->set_id($id);
         $register->set_shop($shop);
         $register->set_shopId($shopId);
         $register->set_order($order);

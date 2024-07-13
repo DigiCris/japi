@@ -339,13 +339,14 @@ function fetchAndDisplayMovieJSON() {
   const options = {
     method: 'GET',
     headers: {
+      cors: 'no-cors',
       accept: 'application/json',
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Yjc5ZWI2OWI1NDkwNGNmYWU4ODA2MDYwZTZlZjZlNyIsInN1YiI6IjY2NTdkYjc5ZTI5Njg2OTY1Y2M0ODMwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aPvHmTafqWvA0aYfwYUcfQSmpLk0RoxkoV1NeZMuKBM'
     }
   };
   //https://developer.themoviedb.org/reference/discover-movie
   //
-  fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+  fetch('http://localhost/flashivery/frontend/productos.json', options)
     .then(response => response.json())
     .then(response => printScreen(response))
     .catch(err => {
@@ -353,19 +354,29 @@ function fetchAndDisplayMovieJSON() {
       console.error(err);
     });
 }
-
+var ourMenu = [];
 function printScreen(response) {
   setTimeout(hideSpinner,800);
   console.log(response["results"].length)
   for(let i=0; i<response["results"].length; i++) {
-    image = "https://image.tmdb.org/t/p/w200"+response["results"][i]["poster_path"];
+    image = "https://cursoblockchain.com.ar/flashivery/assets/"+response["results"][i]["poster_path"];
     title = response["results"][i]["original_title"];
     price = response["results"][i]["vote_average"];
     //console.log(response["results"][i]);
     console.log(image,title,price)    
+    ourMenu[i] = {
+      image,
+      price,
+      title
+    }
+    /*
+    ourMenu[i].image = image;
+    ourMenu[i].price = price;
+    ourMenu[i].title = title;*/
     document.querySelectorAll("body > div > section > div > img")[i].src = image;
-    document.querySelectorAll("body > div > section > div > h5")[i].textContent = title;
-    document.querySelectorAll("body > div > section > div > h6")[i].textContent = price+"☆";
+    document.querySelectorAll("body > div > section > div > h5")[i].textContent = price+" $";
+    document.querySelectorAll("body > div > section > div > h6")[i].textContent = title;
+    document.querySelectorAll("body > div > section > div > button")[i].setAttribute("onclick", "addOrder(ourMenu["+i+"])"); //addOrder(ourMenu[i])
   }
 
 }
@@ -394,4 +405,43 @@ function hideSpinner() {
     targetSection.style.pointerEvents = 'auto';
   }
 }
+
+
+function addOrder(order) {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "method": "setAll",
+    "shop": "Mc Donalds",
+    "shopId": 1,
+    "order": order['title'],
+    "shipDate": "2024-03-29",
+    "Status": "pendiente",
+    "price": order['price'],
+    "pickAddress": "10 15",
+    "deliveryAddress": "10 16",
+    "quarrelDescription": "",
+    "quarrelPicture": order['image'],
+    "reviewDescription": "",
+    "reviewLevel": 6,
+    "deliveryId": 987654,
+    "deliveryMoney": "$5.00",
+    "userId": 1
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch("https://cursoblockchain.com.ar/flashivery/api/v1/order/setAll", requestOptions)
+    .then(response => response.text())
+    .then(result => alert("Gracias por agregar "+order['title']+" al carrito de compra"))
+    .catch(error => console.log('error', error));
+}
+
+
 

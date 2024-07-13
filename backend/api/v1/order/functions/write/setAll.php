@@ -65,9 +65,10 @@ function setAll($id=null, $shop=null, $shopId=null, $order=null, $shipDate=null,
         $register->set_deliveryMoney($deliveryMoney);
         $register->set_userId($userId);
 
-
         $success['response'] = $register->insert();
 
+        debug('after insert<br>');
+        //exit();
 
         if($success['response'] == false) {
             $success['success'] = false;
