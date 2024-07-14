@@ -58,14 +58,14 @@ const $buscar = d.getElementById("buscar"),
 
 
 /// toma de datos /////
-
+/*
 const botonRegistrar = document.getElementById('botonRegistrar');
 botonRegistrar.addEventListener('click', function(event) {
   // Evitar la acción por defecto del botón
   event.preventDefault();
   getFormData();
 });
-
+*/
 var login=false;
 function getFormData() {
   $id = "apellido_error"
@@ -346,7 +346,7 @@ function fetchAndDisplayMovieJSON() {
   };
   //https://developer.themoviedb.org/reference/discover-movie
   //
-  fetch('http://localhost/flashivery/frontend/productos.json', options)
+  fetch('https://cursoblockchain.com.ar/flashivery/productos.json', options)
     .then(response => response.json())
     .then(response => printScreen(response))
     .catch(err => {
