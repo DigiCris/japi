@@ -11,7 +11,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-public class HelloWorldServer {
+public class Read {
 	public static void main(String[] args) {
 		try {
 			// Crear el servidor HTTP en el puerto 8080
