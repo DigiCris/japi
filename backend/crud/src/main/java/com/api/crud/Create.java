@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -85,7 +86,45 @@ public class Create {
 		}
 
 		private static String deleteById(String id) {
-			return "Eliminar por ID: " + id;
+			try {
+				// Cargar el driver de MySQL
+				Class.forName("com.mysql.cj.jdbc.Driver");
+
+				// Conectarse a la base de datos
+				String url = "jdbc:mysql://localhost:3306/curs_flashivery";
+				String usuario = "root";
+				String contrasena = "";
+				Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
+
+				// Crear una consulta SQL para eliminar la fila
+				String consulta = "DELETE FROM `order` WHERE id = ?";
+				PreparedStatement declaracion = conexion.prepareStatement(consulta);
+				declaracion.setString(1, id);
+				int filasAfectadas = declaracion.executeUpdate();
+
+				// Crear una respuesta JSON
+				JsonObject respuestaJSON = new JsonObject();
+				if (filasAfectadas > 0) {
+					respuestaJSON.addProperty("mensaje", "Fila eliminada correctamente");
+				} else {
+					respuestaJSON.addProperty("mensaje", "No se encontró la fila con el ID especificado");
+				}
+
+				// Convertir el objeto JSON a una cadena JSON
+				Gson gson = new Gson();
+				String jsonString = gson.toJson(respuestaJSON);
+				String response = jsonString;
+
+				declaracion.close();
+				conexion.close();
+
+				return response;
+
+			} catch (ClassNotFoundException e) {
+				return ("Error al cargar el driver: " + e.getMessage());
+			} catch (SQLException e) {
+				return ("Error de SQL: " + e.getMessage());
+			}
 		}
 
 		private static String updateAllById(JsonObject jsonObject) {
