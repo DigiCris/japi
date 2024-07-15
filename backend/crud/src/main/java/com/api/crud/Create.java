@@ -82,7 +82,57 @@ public class Create {
 		}
 
 		private static String setAll(JsonObject jsonObject) {
-			return "setall";
+			String shop = jsonObject.get("shop").getAsString();
+			String shopId = jsonObject.get("shopId").getAsString();
+			String order = jsonObject.get("order").getAsString();
+			String shipDate = jsonObject.get("shipDate").getAsString();
+			String status = jsonObject.get("Status").getAsString();
+			String price = jsonObject.get("price").getAsString();
+			String pickAddress = jsonObject.get("pickAddress").getAsString();
+			String deliveryAddress = jsonObject.get("deliveryAddress").getAsString();
+			String quarrelDescription = jsonObject.get("quarrelDescription").getAsString();
+			String quarrelPicture = jsonObject.get("quarrelPicture").getAsString();
+			String reviewDescription = jsonObject.get("reviewDescription").getAsString();
+			String reviewLevel = jsonObject.get("reviewLevel").getAsString();
+			String deliveryId = jsonObject.get("deliveryId").getAsString();
+			String deliveryMoney = jsonObject.get("deliveryMoney").getAsString();
+			String userId = jsonObject.get("userId").getAsString();
+
+			try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/curs_flashivery",
+					"root",
+					"");
+					PreparedStatement statement = connection.prepareStatement(
+							"INSERT INTO `order` (shop, shopId, `order`, shipDate, status, price, pickAddress, deliveryAddress, quarrelDescription, quarrelPicture, reviewDescription, reviewLevel, deliveryId, deliveryMoney, userId) "
+									+
+									"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+
+				statement.setString(1, shop);
+				statement.setString(2, shopId);
+				statement.setString(3, order);
+				statement.setString(4, shipDate);
+				statement.setString(5, status);
+				statement.setString(6, price);
+				statement.setString(7, pickAddress);
+				statement.setString(8, deliveryAddress);
+				statement.setString(9, quarrelDescription);
+				statement.setString(10, quarrelPicture);
+				statement.setString(11, reviewDescription);
+				statement.setString(12, reviewLevel);
+				statement.setString(13, deliveryId);
+				statement.setString(14, deliveryMoney);
+				statement.setString(15, userId);
+
+				int rowsInserted = statement.executeUpdate();
+
+				if (rowsInserted > 0) {
+					return "Método setAll ejecutado correctamente";
+				} else {
+					return "No se pudo insertar la orden en la base de datos";
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return "Error al insertar la orden en la base de datos: " + e.getMessage();
+			}
 		}
 
 		private static String deleteById(String id) {
