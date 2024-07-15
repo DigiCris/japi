@@ -243,7 +243,7 @@ public class Create {
 				Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
 
 				// Crear una consulta SQL
-				String consulta = "SELECT *FROM `order`";
+				String consulta = "SELECT * FROM `order`";
 				Statement declaracion = conexion.createStatement();
 				ResultSet resultado = declaracion.executeQuery(consulta);
 
